@@ -19,14 +19,16 @@ router.get('/', (req, res) => {
 });
 
 
-
+// this get is to select all of the data for a specific location
 router.get('/details/:id', (req, res) => {
   // GET route code here
   const sqlText = `
-  SELECT locations.*, reviews.* FROM "locations"
+  SELECT * FROM "locations"
+  WHERE "locations".id = 3;
+  `
+  /* SELECT locations.*, reviews.* FROM "locations"
   JOIN "reviews" ON "reviews".location_id = "locations".id
-  where locations.id = 1`
-
+  where locations.id = 1 */
   pool
     .query(sqlText)
     .then(result => res.send(result.rows))

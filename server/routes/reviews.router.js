@@ -5,11 +5,11 @@ const router = express.Router();
 /**
  * GET route template
  */
-router.get('/:id', (req, res) => {
+router.get('/location/:location_id', (req, res) => {
   // GET route code here
   const sqlText = `SELECT "reviews".*, "user".username FROM "reviews"
   JOIN "user" on "user".id = "reviews".user_id
-  WHERE "reviews".user_id = ${req.params.id};`
+  WHERE "reviews".location_id = ${req.params.location_id};`
 
   pool
     .query(sqlText)
@@ -20,11 +20,23 @@ router.get('/:id', (req, res) => {
     });
 });
 
-/**
- * POST route template
- */
-router.post('/', (req, res) => {
-  // POST route code here
+
+// this will allow the user to add a review on a specific location page
+router.post('/location/:location_id', (req, res) => {
+ 
+  const sqlText = `
+  INSERT INTO "reviews" ("rating", "review", "user_id", "location_id")
+  VALUES ($1,$2,$3,$4);`
+
+  const reviewData = [req.body.rating, req.body.review, req.user.id, req.params.location_id]
+  
+  pool
+    .query(sqlText, reviewData)
+    .then(() => res.sendStatus(201))
+    .catch(err => {
+      console.log('cant post, sql said no :/', err);
+      res.sendStatus(500)
+    })
 });
 
 module.exports = router;
