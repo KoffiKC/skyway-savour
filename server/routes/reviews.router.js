@@ -66,7 +66,7 @@ router.delete('/user/:review_id', (req, res) => {
   
   pool
     .query(sqlText, [req.params.review_id])
-    .then(() => res.sendStatus(201))
+    .then(() => res.sendStatus(410))
     .catch(err => {
       console.log('cant post, sql said no :/', err);
       res.sendStatus(500)
