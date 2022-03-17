@@ -126,6 +126,27 @@ function App() {
             }
           </Route>
 
+          <ProtectedRoute
+            // logged in shows InfoPage else shows LoginPage
+            exact
+            path="/profile"
+          >
+            <p>itsa my profile!</p>
+          </ProtectedRoute>
+
+          <Route exact path="/location">
+            <p>location stuffs!</p>
+          </Route>
+
+          <Route exact path="/search">
+            <p>where are the theeeeeeengs!</p>
+          </Route>
+
+          <Route exact path="/">
+
+          </Route>
+
+
           {/* If none of the other routes matched, we will show a 404. */}
           <Route>
             <h1>404</h1>
