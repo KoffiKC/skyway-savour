@@ -51,11 +51,11 @@ router.post('/logout', (req, res) => {
 // USER PROFILE ROUTES
 
 // this will select all the users reviews on the profile page
-router.get('/:id', (req, res) => {
+router.get('/:user_id', (req, res) => {
   // GET route code here
-  const sqlText = `SELECT "reviews".*, "user".username FROM "reviews"
+  const sqlText = `SELECT * FROM "reviews"
   JOIN "user" on "user".id = "reviews".user_id
-  WHERE "reviews".user_id = ${req.params.id};`
+  WHERE "reviews".user_id = ${req.params.user_id};`
 
   pool
     .query(sqlText)

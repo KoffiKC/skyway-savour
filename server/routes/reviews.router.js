@@ -39,4 +39,40 @@ router.post('/location/:location_id', (req, res) => {
     })
 });
 
+router.put('/user/:review_id', (req, res) => {
+
+  console.log('this is da bod', req.body);
+  
+ 
+  const sqlText = `
+  UPDATE "reviews" 
+  SET "rating" = $1, "review" = $2
+  WHERE "id" = $3;`
+
+  const reviewData = [req.body.rating, req.body.review, req.params.review_id]
+  
+  pool
+    .query(sqlText, reviewData)
+    .then(() => res.sendStatus(202))
+    .catch(err => {
+      console.log('it seems that review is set in stone..', err);
+      res.sendStatus(500)
+    })
+});
+
+router.delete('/user/:review_id', (req, res) => {
+ 
+  const sqlText = `
+  DELETE FROM "reviews" 
+  WHERE "id" = $1;`
+  
+  pool
+    .query(sqlText, [req.params.review_id])
+    .then(() => res.sendStatus(201))
+    .catch(err => {
+      console.log('cant post, sql said no :/', err);
+      res.sendStatus(500)
+    })
+});
+
 module.exports = router;
