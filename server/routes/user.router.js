@@ -22,10 +22,10 @@ router.post('/register', (req, res, next) => {
   const cohort = req.body.cohort;
   const password = encryptLib.encryptPassword(req.body.password);
 
-  const queryText = `INSERT INTO "users" (username, password, cohort)
-    VALUES ($1, $2, $3) RETURNING id`;
+  const queryText = `INSERT INTO "user" (username, password)
+    VALUES ($1, $2) RETURNING id`;
   pool
-    .query(queryText, [username, password, cohort])
+    .query(queryText, [username, password])
     .then(() => res.sendStatus(201))
     .catch((err) => {
       console.log('User registration failed: ', err);
@@ -46,6 +46,24 @@ router.post('/logout', (req, res) => {
   // Use passport's built-in method to log out the user
   req.logout();
   res.sendStatus(200);
+});
+
+// USER PROFILE ROUTES
+
+// this will select all the users reviews on the profile page
+router.get('/reviews/:user_id', (req, res) => {
+  // GET route code here
+  const sqlText = `SELECT * FROM "reviews"
+  JOIN "user" on "user".id = "reviews".user_id
+  WHERE "reviews".user_id = ${req.params.user_id};`
+
+  pool
+    .query(sqlText)
+    .then(result => res.send(result.rows))
+    .catch((err) => {
+      console.log('GET request for locations FAILED: ', err);
+      res.sendStatus(500);
+    });
 });
 
 module.exports = router;
