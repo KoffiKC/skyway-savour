@@ -9,7 +9,7 @@ function* fetchLocations() {
         // yield put({ type:'SET_ITEMS', payload: shelfItems.data})
 
     } catch (error) {
-        console.log('the shelf item were not fetched :/', error);
+        console.log('the locations were not fetched :/', error);
 
     }
 

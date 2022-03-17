@@ -24,7 +24,7 @@ router.get('/details/:id', (req, res) => {
   // GET route code here
   const sqlText = `
   SELECT * FROM "locations"
-  WHERE "locations".id = 3;
+  WHERE "locations".id = ${req.params.id};
   `
   /* SELECT locations.*, reviews.* FROM "locations"
   JOIN "reviews" ON "reviews".location_id = "locations".id
