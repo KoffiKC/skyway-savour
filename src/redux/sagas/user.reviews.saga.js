@@ -8,7 +8,7 @@ function* fetchUserReviews(action) {
     try {
         const reviews = yield axios.get(`/user/${action.payload}`)
         console.log('The user reviews fetched from database', reviews.data);
-        yield put({ type:'SET_LOCATION_R', payload: reviews.data})
+        yield put({ type:'SET_USER_R', payload: reviews.data})
 
     } catch (error) {
         console.log('the user reviews were not fetched D:', error);
