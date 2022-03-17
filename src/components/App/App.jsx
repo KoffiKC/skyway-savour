@@ -36,6 +36,14 @@ function App() {
       type: 'FETCH_DETAILS',
       payload: 1
     });
+    dispatch({
+      type: 'FETCH_USER_R',
+      payload: 1
+    });
+    dispatch({
+      type: 'FETCH_LOCATION_R',
+      payload: 1
+    });
   }, [dispatch]);
 
   console.log('these are the values within the reducers', locations, details);

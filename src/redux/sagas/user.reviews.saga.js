@@ -6,7 +6,7 @@ function* fetchUserReviews(action) {
     // console.log(event);
     
     try {
-        const reviews = yield axios.get(`/user/${action.payload}`)
+        const reviews = yield axios.get(`/api/user//reviews/${action.payload}`)
         console.log('The user reviews fetched from database', reviews.data);
         yield put({ type:'SET_USER_R', payload: reviews.data})
 

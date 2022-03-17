@@ -6,7 +6,7 @@ function* fetchLocationReviews(action) {
     // console.log(event);
     
     try {
-        const reviews = yield axios.get(`/location/${action.payload}`)
+        const reviews = yield axios.get(`/api/reviews/location/${action.payload}`)
         console.log('The location reviews fetched from database', reviews.data);
         yield put({ type:'SET_LOCATION_R', payload: reviews.data})
 
