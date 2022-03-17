@@ -8,7 +8,7 @@ function* fetchDetails(action) {
     try {
         const details = yield axios.get(`/api/locations/details/${action.payload}`)
         console.log('The details fetched from database', details.data);
-        // yield put({ type:'SET_ITEMS', payload: shelfItems.data})
+        yield put({ type:'SET_DETAILS', payload: details.data})
 
     } catch (error) {
         console.log('the location details were not fetched :/', error);

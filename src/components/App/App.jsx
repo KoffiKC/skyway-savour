@@ -26,6 +26,8 @@ function App() {
   const dispatch = useDispatch();
 
   const user = useSelector(store => store.user);
+  const locations = useSelector(store => store.locations);
+  const details = useSelector(store => store.details);
 
   useEffect(() => {
     dispatch({ type: 'FETCH_USER' });
@@ -36,6 +38,7 @@ function App() {
     });
   }, [dispatch]);
 
+  console.log('these are the values within the reducers', locations, details);
   return (
     <Router>
       <div>

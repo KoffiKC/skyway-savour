@@ -6,7 +6,7 @@ function* fetchLocations() {
     try {
         const locations = yield axios.get('/api/locations')
         console.log('items fetched from database', locations);
-        // yield put({ type:'SET_ITEMS', payload: shelfItems.data})
+        yield put({ type:'SET_LOCATIONS', payload: locations.data})
 
     } catch (error) {
         console.log('the locations were not fetched :/', error);
