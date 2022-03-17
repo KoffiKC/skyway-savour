@@ -41,8 +41,6 @@ router.post('/location/:location_id', (req, res) => {
 
 router.put('/user/:review_id', (req, res) => {
 
-  console.log('this is da bod', req.body);
-  
  
   const sqlText = `
   UPDATE "reviews" 
