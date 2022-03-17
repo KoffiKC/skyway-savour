@@ -68,7 +68,7 @@ router.delete('/user/:review_id', (req, res) => {
     .query(sqlText, [req.params.review_id])
     .then(() => res.sendStatus(410))
     .catch(err => {
-      console.log('cant post, sql said no :/', err);
+      console.log('Everyones a critic, the same goes for you!', err);
       res.sendStatus(500)
     })
 });
