@@ -19,6 +19,7 @@ import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
+import MainMap from '../../components_main/MainMap/MainMap';
 
 import './App.css';
 
@@ -91,7 +92,9 @@ function App() {
             {user.id ?
               // If the user is already logged in, 
               // redirect to the /user page
-              <Redirect to="/user" />
+              // <Redirect to="/user" />
+              <MainMap />
+
               :
               // Otherwise, show the login page
               <LoginPage />
@@ -119,7 +122,8 @@ function App() {
             {user.id ?
               // If the user is already logged in, 
               // redirect them to the /user page
-              <Redirect to="/user" />
+              // <Redirect to="/user" />
+              <MainMap />
               :
               // Otherwise, show the Landing page
               <LandingPage />
