@@ -51,7 +51,7 @@ function App() {
   }, [dispatch]);
 
   console.log('these are the values within the reducers', locations, details);
-  console.log('okay but what does use look like', user, user.id);
+  console.log('okay but what does user look like', user, user.id);
   return (
     <Router>
       <div>

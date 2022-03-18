@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import './SignUpPage.css';
 
 // CUSTOM COMPONENTS
@@ -8,7 +9,14 @@ import LoginForm from '../LoginForm/LoginForm';
 
 function LandingPage() {
   const [heading, setHeading] = useState('Welcome');
+  const dispatch = useDispatch();
   const history = useHistory();
+
+  useEffect(() => {
+    dispatch({
+      type: 'FETCH_LOCATIONS'
+    });
+  }, [])
 
   const onLogin = (event) => {
     history.push('/registration');
