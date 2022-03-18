@@ -35,11 +35,11 @@ function App() {
 
   useEffect(() => {
     dispatch({ type: 'FETCH_USER' });
-    dispatch({ type: 'FETCH_LOCATIONS'});
-    dispatch({
-      type: 'FETCH_DETAILS',
-      payload: 1
-    });
+    // dispatch({ type: 'FETCH_LOCATIONS'});
+    // dispatch({
+    //   type: 'FETCH_DETAILS',
+    //   payload: 1
+    // });
    /*  dispatch({
       type: 'FETCH_USER_R',
       payload: user.id
