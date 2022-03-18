@@ -20,6 +20,10 @@ function LocationsList() {
             type: 'FETCH_DETAILS',
             payload: local.id
         })
+        // dispatch({
+        //     type: 'FETCH_LOCATION_R',
+        //     payload: local.id
+        // })
         history.push(`/location/${local.id}`)
     }
 

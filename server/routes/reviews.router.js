@@ -7,8 +7,11 @@ const router = express.Router();
  */
 router.get('/location/:location_id', (req, res) => {
   // GET route code here
-  const sqlText = `SELECT "reviews".*, "user".username FROM "reviews"
-  JOIN "user" on "user".id = "reviews".user_id
+  // console.log(req.params.location_id);
+  
+
+  const sqlText = `SELECT "reviews".*, "users".username FROM "reviews"
+  JOIN "users" on "users".id = "reviews".user_id
   WHERE "reviews".location_id = ${req.params.location_id};`
 
   pool

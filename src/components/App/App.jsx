@@ -35,7 +35,7 @@ function App() {
 
   useEffect(() => {
     dispatch({ type: 'FETCH_USER' });
-    // dispatch({ type: 'FETCH_LOCATIONS'});
+    dispatch({ type: 'FETCH_LOCATIONS'});
     // dispatch({
     //   type: 'FETCH_DETAILS',
     //   payload: 1
@@ -58,7 +58,7 @@ function App() {
         <Nav />
         <Switch>
           {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
-          <Redirect exact from="/" to="/home" />
+          {/* <Redirect exact from="/" to="/home" /> */}
 
           {/* Visiting localhost:3000/about will show the about page. */}
           <Route
