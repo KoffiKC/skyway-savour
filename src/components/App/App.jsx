@@ -19,7 +19,10 @@ import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
+// main_components
 import ProfileView from '../../components_main/ProfileView/ProfileView';
+import LocationView from '../../components_main/LocationView/LocationView';
+import LocationsList from '../../components_main/LocationsList/LocationsList';
 
 import './App.css';
 
@@ -121,7 +124,9 @@ function App() {
             {user.id ?
               // If the user is already logged in, 
               // redirect them to the /user page
-              <Redirect to="/user" />
+              // <Redirect to="/user" />
+              // <p>I am the locatiosn weeee</p>
+              <LocationsList/>
               :
               // Otherwise, show the Landing page
               <LandingPage />
@@ -139,6 +144,7 @@ function App() {
 
           <Route exact path="/location">
             <p>location stuffs!</p>
+            <LocationView/>
           </Route>
 
           <Route exact path="/search">
