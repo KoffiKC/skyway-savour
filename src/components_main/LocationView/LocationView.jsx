@@ -18,7 +18,7 @@ function LocationView () {
 
     // useEffect(() => {
     //     dispatch({
-    //       type: 'FETCH_LOCATION_R',
+    //       type: 'FETCH_DETAILS',
     //       payload: id
     //     });
     //   }, [])

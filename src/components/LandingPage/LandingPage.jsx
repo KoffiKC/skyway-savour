@@ -36,7 +36,7 @@ function LandingPage() {
           <LoginForm />
 
           <center>
-            <h4>Already a Member?</h4>
+            <h4>New to Skyway Savor?</h4>
             <button className="btn btn_sizeSm" onClick={onLogin}>
               Join here
             </button>

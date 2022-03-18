@@ -10,7 +10,7 @@ router.get('/location/:location_id', (req, res) => {
   // console.log(req.params.location_id);
   
 
-  const sqlText = `SELECT "reviews".*, "users".username FROM "reviews"
+  const sqlText = `SELECT "reviews".*, "users".username, "users".cohort FROM "reviews"
   JOIN "users" on "users".id = "reviews".user_id
   WHERE "reviews".location_id = ${req.params.location_id};`
 
