@@ -1,7 +1,10 @@
 import { combineReducers } from 'redux';
 import errors from './errors.reducer';
 import user from './user.reducer';
-
+import locations from './locations.reducer';
+import details from './details.reducer';
+import locationReviews from './locationReviews.reducer';
+import userReviews from './userReviews.reducer'
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
 // This is imported in index.js as rootSaga
@@ -11,6 +14,11 @@ import user from './user.reducer';
 const rootReducer = combineReducers({
   errors, // contains registrationMessage and loginMessage
   user, // will have an id and username if someone is logged in
+  locations, // hold all locations currently in the database
+  details, // holds only information on one location
+  locationReviews, // holds the reviews for a specific location
+  userReviews, // hold all the reviews made by an individual user
+
 });
 
 export default rootReducer;

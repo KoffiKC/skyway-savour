@@ -60,7 +60,7 @@ function RegisterForm() {
             type="text"
             name="cohort"
             value={cohort}
-            required
+        
             onChange={(event) => setCohort(event.target.value)}
           />
         </label>

@@ -19,6 +19,7 @@ import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
+import ProfileView from '../../components_main/ProfileView/ProfileView';
 
 import './App.css';
 
@@ -26,11 +27,28 @@ function App() {
   const dispatch = useDispatch();
 
   const user = useSelector(store => store.user);
+  const locations = useSelector(store => store.locations);
+  const details = useSelector(store => store.details);
 
   useEffect(() => {
     dispatch({ type: 'FETCH_USER' });
+    dispatch({ type: 'FETCH_LOCATIONS'});
+    dispatch({
+      type: 'FETCH_DETAILS',
+      payload: 1
+    });
+   /*  dispatch({
+      type: 'FETCH_USER_R',
+      payload: user.id
+    }); */
+    dispatch({
+      type: 'FETCH_LOCATION_R',
+      payload: 1
+    });
   }, [dispatch]);
 
+  console.log('these are the values within the reducers', locations, details);
+  console.log('okay but what does use look like', user, user.id);
   return (
     <Router>
       <div>
@@ -109,6 +127,28 @@ function App() {
               <LandingPage />
             }
           </Route>
+
+          <ProtectedRoute
+            // logged in shows InfoPage else shows LoginPage
+            exact
+            path="/profile"
+          >
+            <p>itsa my profile!</p>
+            <ProfileView />
+          </ProtectedRoute>
+
+          <Route exact path="/location">
+            <p>location stuffs!</p>
+          </Route>
+
+          <Route exact path="/search">
+            <p>where are the theeeeeeengs!</p>
+          </Route>
+
+          <Route exact path="/">
+
+          </Route>
+
 
           {/* If none of the other routes matched, we will show a 404. */}
           <Route>
