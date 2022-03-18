@@ -58,7 +58,7 @@ router.get('/reviews/:user_id', (req, res) => {
   SELECT "reviews".*, "users".username, "users".cohort, "locations".name FROM "reviews"
   JOIN "users" on "users".id = "reviews".user_id
   JOIN "locations" on "locations".id = "reviews".location_id
-  WHERE "reviews".user_id = 2;`
+  WHERE "reviews".user_id = ${req.params.user_id};`
 
   pool
     .query(sqlText)

@@ -4,6 +4,7 @@ import axios from 'axios';
 function* fetchLocationReviews(action) {
 
     // console.log(event);
+    console.log('this should be it', action.payload);
     
     try {
         const reviews = yield axios.get(`/api/reviews/location/${action.payload}`)

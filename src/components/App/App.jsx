@@ -19,7 +19,10 @@ import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
+// main_components
 import ProfileView from '../../components_main/ProfileView/ProfileView';
+import LocationView from '../../components_main/LocationView/LocationView';
+import LocationsList from '../../components_main/LocationsList/LocationsList';
 
 import './App.css';
 
@@ -33,22 +36,22 @@ function App() {
   useEffect(() => {
     dispatch({ type: 'FETCH_USER' });
     dispatch({ type: 'FETCH_LOCATIONS'});
-    dispatch({
-      type: 'FETCH_DETAILS',
-      payload: 1
-    });
+    // dispatch({
+    //   type: 'FETCH_DETAILS',
+    //   payload: 1
+    // });
    /*  dispatch({
       type: 'FETCH_USER_R',
       payload: user.id
     }); */
-    dispatch({
-      type: 'FETCH_LOCATION_R',
-      payload: 1
-    });
+    // dispatch({
+    //   type: 'FETCH_LOCATION_R',
+    //   payload: 1
+    // });
   }, [dispatch]);
 
   console.log('these are the values within the reducers', locations, details);
-  console.log('okay but what does use look like', user, user.id);
+  console.log('okay but what does user look like', user, user.id);
   return (
     <Router>
       <div>
@@ -121,7 +124,9 @@ function App() {
             {user.id ?
               // If the user is already logged in, 
               // redirect them to the /user page
-              <Redirect to="/user" />
+              // <Redirect to="/user" />
+              // <p>I am the locatiosn weeee</p>
+              <LocationsList/>
               :
               // Otherwise, show the Landing page
               <LandingPage />
@@ -137,8 +142,9 @@ function App() {
             <ProfileView />
           </ProtectedRoute>
 
-          <Route exact path="/location">
+          <Route exact path="/location/:id">
             <p>location stuffs!</p>
+            <LocationView/>
           </Route>
 
           <Route exact path="/search">
