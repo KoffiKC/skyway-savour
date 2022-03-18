@@ -20,7 +20,7 @@ function LocationsList() {
             type: 'FETCH_DETAILS',
             payload: local.id
         })
-        
+        history.push(`/location/${local.id}`)
     }
 
     const locations = useSelector(store => store.locations)

@@ -142,7 +142,7 @@ function App() {
             <ProfileView />
           </ProtectedRoute>
 
-          <Route exact path="/location">
+          <Route exact path="/location/:id">
             <p>location stuffs!</p>
             <LocationView/>
           </Route>

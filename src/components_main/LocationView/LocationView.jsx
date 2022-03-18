@@ -9,9 +9,17 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 
 function LocationView () {
+
+    const location_details = useSelector(store => store.details)
+    const details = location_details[0]
+
+console.log('I am the details on the wall',details);
     return (
         <>
-        <p>Im a the location!</p>
+            <h1>{details.name}</h1>
+            <img src={details.image_url} alt="" width={375}/>
+            <p>{details.description}</p>
+            <h3>{details.price_status}</h3>
         </>
     )
 }
