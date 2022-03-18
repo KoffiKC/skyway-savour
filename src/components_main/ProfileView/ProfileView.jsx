@@ -8,16 +8,18 @@ import {
 
 import { useDispatch, useSelector } from 'react-redux';
 
+import UserReviews from '../UserReviews/UserReviews';
+
 function ProfileView() {
 
   const dispatch = useDispatch()
 
-  useEffect(() => {
-    dispatch({
-      type: 'FETCH_USER_R',
-      payload: user.id
-    });
-  }, [])
+  // useEffect(() => {
+  //   dispatch({
+  //     type: 'FETCH_USER',
+  //     payload: user.id
+  //   });
+  // }, [])
 
   const user = useSelector(store => store.user);
   const reviews = useSelector(store => store.userReviews);
@@ -26,12 +28,7 @@ function ProfileView() {
   return (
     <>
       <h1>Hi my name is {user.username}</h1>
-      {reviews.map(review => (
-        <div>
-          <h3>{review.name}</h3>
-          <p>{review.review}</p>
-        </div>
-      ))}
+        <UserReviews reviews={reviews}/>
     </>
   )
 }

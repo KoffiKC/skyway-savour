@@ -8,12 +8,17 @@ import {
 
 import { useDispatch, useSelector } from 'react-redux';
 
-function UserReviews () {
-    return (
-        <>
-        
-        </>
-    )
+function UserReviews({ reviews }) {
+  return (
+    <>
+      {reviews.map(review => (
+        <div>
+          <h3>{review.name}</h3>
+          <p>{review.review}</p>
+        </div>
+      ))}
+    </>
+  )
 }
 
 export default UserReviews

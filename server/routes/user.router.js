@@ -53,7 +53,6 @@ router.post('/logout', (req, res) => {
 // this will select all the users reviews on the profile page
 router.get('/reviews/:user_id', (req, res) => {
   // GET route code here
-  console.log('So like I get here but like.. what?', req.params.user_id);
   
   const sqlText = `
   SELECT "reviews".*, "users".username, "users".cohort, "locations".name FROM "reviews"
