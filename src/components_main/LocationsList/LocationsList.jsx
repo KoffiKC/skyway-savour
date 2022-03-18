@@ -20,6 +20,7 @@ function LocationsList() {
             type: 'FETCH_DETAILS',
             payload: local.id
         })
+        
     }
 
     const locations = useSelector(store => store.locations)
