@@ -28,6 +28,7 @@ function ProfileView() {
   return (
     <>
       <h1>Hi my name is {user.username}</h1>
+      <h3>and I'm from the {user.cohort} cohort!</h3>
         <UserReviews reviews={reviews}/>
     </>
   )
