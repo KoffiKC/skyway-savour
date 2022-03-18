@@ -9,6 +9,20 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 
 function ProfileView () {
+
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch({
+      type: 'FETCH_USER_R',
+      payload: user.id
+    });
+  }, [])
+
+  const user = useSelector(store => store.user);
+  const reviews = useSelector(store => store.userReviews);
+  
+  console.log('this is real, this si me!!',user, 'ALSO REVIEW WAU', reviews);
     return (
         <>
         
@@ -18,15 +32,3 @@ function ProfileView () {
 
 export default ProfileView
 
-
-
-/* {
-	"create exported component": {
-		"prefix": "componen",
-		"body": [
-			"console.log($1);",
-			"$2"
-		],
-		"description": "Log output to console"
-	}
-} */

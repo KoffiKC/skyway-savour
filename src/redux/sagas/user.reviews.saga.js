@@ -4,9 +4,12 @@ import axios from 'axios';
 function* fetchUserReviews(action) {
 
     // console.log(event);
+
+    console.log('WHAT IS THIS THO??????', action);
+    
     
     try {
-        const reviews = yield axios.get(`/api/user//reviews/${action.payload}`)
+        const reviews = yield axios.get(`/api/user/reviews/${action.payload}`)
         console.log('The user reviews fetched from database', reviews.data);
         yield put({ type:'SET_USER_R', payload: reviews.data})
 

@@ -19,6 +19,7 @@ import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
+import ProfileView from '../../components_main/ProfileView/ProfileView';
 
 import './App.css';
 
@@ -36,10 +37,10 @@ function App() {
       type: 'FETCH_DETAILS',
       payload: 1
     });
-    dispatch({
+   /*  dispatch({
       type: 'FETCH_USER_R',
-      payload: 1
-    });
+      payload: user.id
+    }); */
     dispatch({
       type: 'FETCH_LOCATION_R',
       payload: 1
@@ -47,6 +48,7 @@ function App() {
   }, [dispatch]);
 
   console.log('these are the values within the reducers', locations, details);
+  console.log('okay but what does use look like', user, user.id);
   return (
     <Router>
       <div>
@@ -132,6 +134,7 @@ function App() {
             path="/profile"
           >
             <p>itsa my profile!</p>
+            <ProfileView />
           </ProtectedRoute>
 
           <Route exact path="/location">
