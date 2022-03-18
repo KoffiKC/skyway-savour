@@ -22,6 +22,10 @@ function LocationView () {
     //       payload: id
     //     });
     //   }, [])
+    const handleClick = () => {
+        console.log('maur clickiibhss :)');
+    }
+   
 
     const reviews = useSelector(store => store.locationReviews);
     const location_details = useSelector(store => store.details)
@@ -34,6 +38,7 @@ console.log('I am the details on the wall',details, id);
             <img src={details.image_url} alt="" width={375}/>
             <p>{details.description}</p>
             <h3>{details.price_status}</h3>
+            <button onClick={handleClick}>Add Review</button>
             <UserReviews reviews={reviews} />
         </>
     )
