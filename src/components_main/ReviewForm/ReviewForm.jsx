@@ -46,6 +46,9 @@ export default function ReviewForm() {
     const handleClick = () => {
         console.log('this will submit the form weee!');
         console.log(value, review);
+        dispatch({
+            type: 'ADD_REVIEW'
+        })
         handleClose()
     }
 
