@@ -8,8 +8,8 @@ import {
 
 import { useDispatch, useSelector } from 'react-redux';
 
-function UserReviews({ reviews }) {
-  console.log('this is what reviews looks like... riGHT NOW!', reviews);
+function LocationReviews({ reviews }) {
+  console.log('this is what LOCATION reviews looks like... riGHT NOW!', reviews);
   return (
     <>
       {reviews.map(review => (
@@ -24,4 +24,4 @@ function UserReviews({ reviews }) {
   )
 }
 
-export default UserReviews
+export default LocationReviews
