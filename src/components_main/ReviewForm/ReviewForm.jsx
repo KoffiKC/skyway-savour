@@ -47,7 +47,12 @@ export default function ReviewForm() {
         console.log('this will submit the form weee!');
         console.log(value, review);
         dispatch({
-            type: 'ADD_REVIEW'
+            type: 'ADD_REVIEW',
+            payload: {
+                location_id: 1,
+                rating: value,
+                review: review
+            }
         })
         handleClose()
     }
