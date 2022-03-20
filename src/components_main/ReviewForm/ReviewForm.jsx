@@ -1,5 +1,6 @@
 // modal things
 import * as React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
@@ -38,10 +39,13 @@ export default function ReviewForm() {
     // handle rating functionality
     const [value, setValue] = React.useState(2);
     const [hover, setHover] = React.useState(-1);
-
+    const [review, setReview] = React.useState('');
+    // this will allow users to POST the review to the database
+    const dispatch = useDispatch()
 
     const handleClick = () => {
         console.log('this will submit the form weee!');
+        console.log(value, review);
         handleClose()
     }
 
@@ -59,7 +63,10 @@ export default function ReviewForm() {
                     <Typography id="modal-modal-title" variant="h6" component="h2">
                         Create a new review!
                     </Typography>
-                    <input type="text" placeholder='look at me im an input' />
+                    <input 
+                    type="text" 
+                    placeholder='look at me im an input'
+                    onChange={(e)=> setReview(e.target.value)} />
                     <Box
                         sx={{
                             width: 200,
