@@ -50,7 +50,8 @@ export default function EditReviewForm({Review}) {
         dispatch({
             type: 'UPDATE_REVIEW',
             payload: {
-                id: Review.id,
+                user_id: Review.user_id,
+                review_id: Review.id,
                 rating: value,
                 review: review
             }

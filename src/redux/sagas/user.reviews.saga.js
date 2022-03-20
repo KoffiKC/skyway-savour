@@ -22,20 +22,19 @@ function* fetchUserReviews(action) {
 
 function* updateUserReviews(action) {
 
-    // console.log(event);
 
-    console.log('WHAT IS THIS THO??????', action.payload);
+    // console.log('WHAT IS THIS THO??????', action.payload);
+    const data = action.payload
     
     
-    // try {
-    //     const reviews = yield axios.get(`/api/user/reviews/${action.payload}`)
-    //     console.log('The user reviews fetched from database', reviews.data);
-    //     yield put({ type:'SET_USER_R', payload: reviews.data})
+    try {
+        yield axios.put(`/api/reviews/user/${data.review_id}`, {rating: data.rating, review: data.review})
+        yield put({ type:'FETCH_USER_R', payload: data.user_id})
 
-    // } catch (error) {
-    //     console.log('the user reviews were not fetched D:', error);
+    } catch (error) {
+        console.log('the user review was not updated', error);
 
-    // }
+    }
 
 }
 
