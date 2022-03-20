@@ -1,5 +1,7 @@
 // modal things
 import * as React from 'react';
+import { useDispatch } from 'react-redux';
+
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
@@ -39,14 +41,24 @@ export default function EditReviewForm({Review}) {
     const [value, setValue] = React.useState(Review.rating);
     const [hover, setHover] = React.useState(-1);
     const [review, setReview] = React.useState(Review.review);
+    // this will allow users to POST the review to the database
+    const dispatch = useDispatch()
 
 
     const handleClick = () => {
         console.log('this will submit the form weee!', value, review);
+        dispatch({
+            type: 'UPDATE_REVIEW',
+            payload: {
+                id: Review.id,
+                rating: value,
+                review: review
+            }
+        })
         handleClose()
     }
 
-    console.log('the review', Review);
+    // console.log('the review', Review);
     return (
         <div>
             <Button onClick={handleOpen}>Edit Review</Button>
