@@ -10,11 +10,13 @@ import { useDispatch, useSelector } from 'react-redux';
 
 
 import UserReviews from '../UserReviews/UserReviews';
+import ReviewForm from '../ReviewForm/ReviewForm';
 import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
 
 function LocationView () {
 
     const { id } = useParams()
+    const dispatch = useDispatch()
 
     // useEffect(() => {
     //     dispatch({
@@ -30,7 +32,7 @@ function LocationView () {
     const reviews = useSelector(store => store.locationReviews);
     const location_details = useSelector(store => store.details)
     const details = location_details[0]
-
+   
 console.log('I am the details on the wall',details, id);
     return (
         <>
@@ -39,6 +41,7 @@ console.log('I am the details on the wall',details, id);
             <p>{details.description}</p>
             <h3>{details.price_status}</h3>
             <button onClick={handleClick}>Add Review</button>
+            <ReviewForm details={location_details}/>
             <UserReviews reviews={reviews} />
         </>
     )

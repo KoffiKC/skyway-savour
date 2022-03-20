@@ -31,7 +31,7 @@ const style = {
     p: 4,
 };
 
-export default function ReviewForm() {
+export default function ReviewForm({details}) {
     // handle model open and close
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
@@ -42,6 +42,7 @@ export default function ReviewForm() {
     const [review, setReview] = React.useState('');
     // this will allow users to POST the review to the database
     const dispatch = useDispatch()
+    const Details = details[0]
 
     const handleClick = () => {
         console.log('this will submit the form weee!');
@@ -49,7 +50,7 @@ export default function ReviewForm() {
         dispatch({
             type: 'ADD_REVIEW',
             payload: {
-                location_id: 1,
+                location_id: Details.id,
                 rating: value,
                 review: review
             }
@@ -57,6 +58,7 @@ export default function ReviewForm() {
         handleClose()
     }
 
+    console.log('this is in the review form, i have bo clue whe itll console lol', Details);
     return (
         <div>
             <Button onClick={handleOpen}>Add Review</Button>
@@ -69,7 +71,7 @@ export default function ReviewForm() {
             >
                 <Box sx={style}>
                     <Typography id="modal-modal-title" variant="h6" component="h2">
-                        Create a new review!
+                        How was your experience at {Details.name}?
                     </Typography>
                     <input 
                     type="text" 
