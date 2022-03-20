@@ -2,6 +2,7 @@ import React from 'react';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import {useSelector} from 'react-redux';
 import ReviewForm from '../../components_main/ReviewForm/ReviewForm';
+import EditReviewForm from '../../components_main/EditReviewForm/EditReviewForm';
 
 
 function UserPage() {
@@ -13,6 +14,7 @@ function UserPage() {
       <p>Your ID is: {user.id}</p>
       <p>is it here?</p>
             <ReviewForm/>
+            <EditReviewForm/>
       <LogOutButton className="btn" />
     </div>
   );
