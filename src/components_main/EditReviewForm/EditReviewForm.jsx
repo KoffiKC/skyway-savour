@@ -30,21 +30,23 @@ const style = {
     p: 4,
 };
 
-export default function EditReviewForm() {
+export default function EditReviewForm({Review}) {
     // handle model open and close
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
     // handle rating functionality
-    const [value, setValue] = React.useState(2);
+    const [value, setValue] = React.useState(Review.rating);
     const [hover, setHover] = React.useState(-1);
+    const [review, setReview] = React.useState(Review.review);
 
 
     const handleClick = () => {
-        console.log('this will submit the form weee!');
+        console.log('this will submit the form weee!', value, review);
         handleClose()
     }
 
+    console.log('the review', Review);
     return (
         <div>
             <Button onClick={handleOpen}>Edit Review</Button>
@@ -58,7 +60,11 @@ export default function EditReviewForm() {
                     <Typography id="modal-modal-title" variant="h6" component="h2">
                         Edit an existing review!
                     </Typography>
-                    <input type="text" placeholder='look at me im an input' />
+                    <input 
+                    type="text" 
+                    placeholder='look at me im an input'
+                    value={review}
+                    onChange={(e)=> setReview(e.target.value)}/>
                     <Box
                         sx={{
                             width: 200,

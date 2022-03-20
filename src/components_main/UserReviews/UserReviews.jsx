@@ -7,6 +7,8 @@ import {
 } from 'react-router-dom';
 
 import { useDispatch, useSelector } from 'react-redux';
+import EditReviewForm from '../EditReviewForm/EditReviewForm';
+
 
 function UserReviews({ reviews }) {
   console.log('this is what reviews looks like... riGHT NOW!', reviews);
@@ -18,6 +20,7 @@ function UserReviews({ reviews }) {
           <h3>{review.username} gives a rating of {review.rating}</h3>
           <p>{review.cohort}</p>
           <p>{review.review}</p>
+          <EditReviewForm Review={review}/>
         </div>
       ))}
     </>
