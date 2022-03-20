@@ -42,17 +42,17 @@ function* deleteUserReview(action) {
 
 
     console.log('WHAT?????', action.payload);
-    // const data = action.payload
+    const data = action.payload
     
     
-    // try {
-    //     yield axios.delete(`/api/reviews/user/${data.review_id}`)
-    //     yield put({ type:'FETCH_USER_R', payload: data.user_id})
+    try {
+        yield axios.delete(`/api/reviews/user/${data.review_id}`)
+        yield put({ type:'FETCH_USER_R', payload: data.user_id})
 
-    // } catch (error) {
-    //     console.log('the user review was not updated', error);
+    } catch (error) {
+        console.log('the user review was not updated', error);
 
-    // }
+    }
 
 }
 

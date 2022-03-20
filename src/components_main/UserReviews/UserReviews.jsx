@@ -18,7 +18,10 @@ function UserReviews({ reviews }) {
     console.log('YOU WILL BE DELETED');
     dispatch({
       type: 'DELETE_REVIEW',
-      payload: review.id
+      payload: {
+        user_id: review.user_id,
+        review_id: review.id
+      }
     })
   }
 
