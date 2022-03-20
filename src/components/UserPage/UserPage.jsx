@@ -14,7 +14,7 @@ function UserPage() {
       <p>Your ID is: {user.id}</p>
       <p>is it here?</p>
             {/* <ReviewForm/> */}
-            <EditReviewForm/>
+            {/* <EditReviewForm/> */}
       <LogOutButton className="btn" />
     </div>
   );

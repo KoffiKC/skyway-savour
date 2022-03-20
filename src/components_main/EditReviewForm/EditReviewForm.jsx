@@ -1,5 +1,7 @@
 // modal things
 import * as React from 'react';
+import { useDispatch } from 'react-redux';
+
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
@@ -30,21 +32,34 @@ const style = {
     p: 4,
 };
 
-export default function EditReviewForm() {
+export default function EditReviewForm({Review}) {
     // handle model open and close
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
     // handle rating functionality
-    const [value, setValue] = React.useState(2);
+    const [value, setValue] = React.useState(Review.rating);
     const [hover, setHover] = React.useState(-1);
+    const [review, setReview] = React.useState(Review.review);
+    // this will allow users to POST the review to the database
+    const dispatch = useDispatch()
 
 
     const handleClick = () => {
-        console.log('this will submit the form weee!');
+        console.log('this will submit the form weee!', value, review);
+        dispatch({
+            type: 'UPDATE_REVIEW',
+            payload: {
+                user_id: Review.user_id,
+                review_id: Review.id,
+                rating: value,
+                review: review
+            }
+        })
         handleClose()
     }
 
+    // console.log('the review', Review);
     return (
         <div>
             <Button onClick={handleOpen}>Edit Review</Button>
@@ -58,7 +73,11 @@ export default function EditReviewForm() {
                     <Typography id="modal-modal-title" variant="h6" component="h2">
                         Edit an existing review!
                     </Typography>
-                    <input type="text" placeholder='look at me im an input' />
+                    <input 
+                    type="text" 
+                    placeholder='look at me im an input'
+                    value={review}
+                    onChange={(e)=> setReview(e.target.value)}/>
                     <Box
                         sx={{
                             width: 200,
