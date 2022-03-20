@@ -13,7 +13,7 @@ function UserPage() {
       <h2>Welcome, {user.username}!</h2>
       <p>Your ID is: {user.id}</p>
       <p>is it here?</p>
-            <ReviewForm/>
+            {/* <ReviewForm/> */}
             <EditReviewForm/>
       <LogOutButton className="btn" />
     </div>

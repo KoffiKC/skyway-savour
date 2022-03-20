@@ -27,7 +27,8 @@ function* postLocationReview(action) {
     try {
         yield axios.post(`/api/reviews/location/${data.location_id}`, {rating: data.rating, review: data.review})
         // console.log('The location reviews fetched from database', reviews.data);
-        // yield put({ type:'SET_LOCATION_R', payload: reviews.data})
+        yield put({ type:'FETCH_LOCATION_R', payload: data.location_id})
+
 
     } catch (error) {
         console.log('the location reviews were not fetched D:', error);

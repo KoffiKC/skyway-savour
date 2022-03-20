@@ -15,28 +15,32 @@ import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
 
 function LocationView () {
 
-    const { id } = useParams()
-    const dispatch = useDispatch()
+    const id = useParams().id
+    const dispatch = useDispatch();
 
-    // useEffect(() => {
-    //     dispatch({
-    //       type: 'FETCH_DETAILS',
-    //       payload: id
-    //     });
-    //   }, [])
+    const reviews = useSelector(store => store.locationReviews);
+    const location_details = useSelector(store => store.details);
+    useEffect(() => {
+        // dispatch({
+        //   type: 'FETCH_DETAILS',
+        //   payload: id
+        // });
+        dispatch({
+          type: 'IS_ANYTHING_HAPPENING'
+        });
+      }, [])
+
     const handleClick = () => {
         console.log('maur clickiibhss :)');
     }
    
 
-    const reviews = useSelector(store => store.locationReviews);
-    const location_details = useSelector(store => store.details)
     const details = location_details[0]
    
 console.log('I am the details on the wall',details, id);
     return (
         <>
-            <h1>{details.name}</h1>
+            {/* <h1>{details.name}</h1> */}
             <img src={details.image_url} alt="" width={375}/>
             <p>{details.description}</p>
             <h3>{details.price_status}</h3>
