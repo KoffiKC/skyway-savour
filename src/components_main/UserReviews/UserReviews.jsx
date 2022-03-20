@@ -11,7 +11,17 @@ import EditReviewForm from '../EditReviewForm/EditReviewForm';
 
 
 function UserReviews({ reviews }) {
-  console.log('this is what reviews looks like... riGHT NOW!', reviews);
+  // console.log('this is what reviews looks like... riGHT NOW!', reviews);
+  const dispatch = useDispatch()
+
+  const handleClick = (review) => {
+    console.log('YOU WILL BE DELETED');
+    dispatch({
+      type: 'DELETE_REVIEW',
+      payload: review.id
+    })
+  }
+
   return (
     <>
       {reviews.map(review => (
@@ -21,6 +31,7 @@ function UserReviews({ reviews }) {
           <p>{review.cohort}</p>
           <p>{review.review}</p>
           <EditReviewForm Review={review}/>
+          <button onClick={() => handleClick(review)}>DELETE</button>
         </div>
       ))}
     </>
