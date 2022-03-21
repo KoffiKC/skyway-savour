@@ -38,9 +38,7 @@ router.get('/details/:id', (req, res) => {
     });
 });
 
-/**
- * POST route template
- */
+// POST will be ADMIN only
 router.post('/', (req, res) => {
   // POST route code here
 });
