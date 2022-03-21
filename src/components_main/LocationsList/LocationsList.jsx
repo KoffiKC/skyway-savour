@@ -1,25 +1,26 @@
 import React, { useEffect } from 'react';
-import {
-    HashRouter as Router,
-    Redirect,
-    Route,
-    Switch,
-} from 'react-router-dom';
+// import {
+//     HashRouter as Router,
+//     Redirect,
+//     Route,
+//     Switch,
+// } from 'react-router-dom';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import LocationItem from '../LocationItem/LocationItem';
 
 function LocationsList() {
-    
+
     const dispatch = useDispatch()
     const history = useHistory()
 
     const handleClick = (local) => {
         console.log('clciky wohoo');
-        dispatch({
-            type: 'FETCH_DETAILS',
-            payload: local.id
-        })
+        // dispatch({
+        //     type: 'FETCH_DETAILS',
+        //     payload: local.id
+        // })
         // dispatch({
         //     type: 'FETCH_LOCATION_R',
         //     payload: local.id
@@ -34,13 +35,9 @@ function LocationsList() {
         <>
             <p>I am the locatiosn weeee</p>
             {locations.map(local => (
-                <>
-                    <div key={local.id}>
-                        <h1>{local.name}</h1>
-                        <h3>{local.description}</h3>
-                        <button onClick={() => handleClick(local)}>MORE INFO</button>
-                    </div>
-                </>
+                    <LocationItem
+                        key={local.id}
+                        local={local} />   
             ))}
         </>
     )
