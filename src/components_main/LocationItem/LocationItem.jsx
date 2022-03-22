@@ -17,10 +17,10 @@ function LocationItem({ local }) {
 
     const handleClick = (local) => {
         console.log('clciky wohoo');
-        dispatch({
-            type: 'FETCH_DETAILS',
-            payload: local.id
-        })
+        // dispatch({
+        //     type: 'FETCH_DETAILS',
+        //     payload: local.id
+        // })
         // dispatch({
         //     type: 'FETCH_LOCATION_R',
         //     payload: local.id
@@ -30,8 +30,8 @@ function LocationItem({ local }) {
 
     return (
         <>
-            <h1>{local.name}</h1>
-            <h3>{local.description}</h3>
+            <h1>{local?.name}</h1>
+            <h3>{local?.description}</h3>
             <button onClick={() => handleClick(local)}>MORE INFO</button>
         </>
     )

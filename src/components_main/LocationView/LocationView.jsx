@@ -1,10 +1,5 @@
 import React, { useEffect } from 'react';
-import {
-  HashRouter as Router,
-  Redirect,
-  Route,
-  Switch,
-} from 'react-router-dom';
+
 
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -25,12 +20,13 @@ function LocationView() {
       payload: id
     });
     dispatch({
-      type: 'IS_ANYTHING_HAPPENING'
-    });
+      type: 'FETCH_LOCATION_R',
+      payload: id
+  })
   }, [])
 
 
-  const reviews = useSelector(store => store.locationReviews);
+  // const reviews = useSelector(store => store.locationReviews);
   const location_details = useSelector(store => store.details);
 
   const handleClick = () => {
@@ -43,13 +39,13 @@ function LocationView() {
   console.log('location details and location id', details, id);
   return (
     <>
-      <h1>{details.name}</h1>
-      <img src={details.image_url} alt="" width={375} />
-      <p>{details.description}</p>
-      <h3>{details.price_status}</h3>
+      <h1>{details?.name}</h1>
+      <img src={details?.image_url} alt="" width={375} />
+      <p>{details?.description}</p>
+      <h3>{details?.price_status}</h3>
       <button onClick={handleClick}>Add Review</button>
       <ReviewForm details={location_details} />
-      <LocationReviews reviews={reviews} />
+      <LocationReviews   />
     </>
   )
 }

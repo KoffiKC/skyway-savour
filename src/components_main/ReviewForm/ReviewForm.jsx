@@ -71,7 +71,7 @@ export default function ReviewForm({details}) {
             >
                 <Box sx={style}>
                     <Typography id="modal-modal-title" variant="h6" component="h2">
-                        How was your experience at {Details.name}?
+                        How was your experience at {Details?.name}?
                     </Typography>
                     <input 
                     type="text" 

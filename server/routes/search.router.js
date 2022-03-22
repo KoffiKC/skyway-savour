@@ -10,7 +10,7 @@ router.get('/:search_term', (req, res) => {
   SELECT DISTINCT "locations".* FROM "locations"
  JOIN "locations_food" on "locations".id = "locations_food".location_id
  JOIN "food_types" on "food_types".id = "locations_food".food_id
- WHERE "food_types".food_type LIKE '%$1%' OR "locations".name LIKE '%$1%';`
+ WHERE "food_types".food_type LIKE %$1% OR "locations".name LIKE %$1%;`
 
   pool
     .query(sqlText, [req.params.search_term])
@@ -25,8 +25,6 @@ router.get('/:search_term', (req, res) => {
 // this get is to get locations oredered in a specific manner
 router.get('/sort/:id', (req, res) => {
 
-  console.log('HEY IM IN HERE!!!');
-  
   // GET route code here
   const sqlText = `
   SELECT * FROM "locations"
