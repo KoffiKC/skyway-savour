@@ -15,25 +15,15 @@ function LocationsList() {
     const dispatch = useDispatch()
     const history = useHistory()
 
-    const handleClick = (local) => {
-        console.log('clciky wohoo');
-        // dispatch({
-        //     type: 'FETCH_DETAILS',
-        //     payload: local.id
-        // })
-        // dispatch({
-        //     type: 'FETCH_LOCATION_R',
-        //     payload: local.id
-        // })
-        history.push(`/location/${local.id}`)
-    }
+    useEffect(() => {
+        dispatch({ type: 'FETCH_LOCATIONS'});
+      }, []);
 
     const locations = useSelector(store => store.locations)
     const location_details = useSelector(store => store.details)
     console.log(locations, 'just one of the things', location_details);
     return (
         <>
-            <p>I am the locatiosn weeee</p>
             {locations.map(local => (
                     <LocationItem
                         key={local.id}

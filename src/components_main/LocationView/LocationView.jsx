@@ -40,7 +40,7 @@ function LocationView() {
 
   const details = location_details[0]
 
-  console.log('I am the details on the wall', details, id);
+  console.log('location details and location id', details, id);
   return (
     <>
       <h1>{details.name}</h1>

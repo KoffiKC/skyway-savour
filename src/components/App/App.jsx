@@ -35,23 +35,10 @@ function App() {
 
   useEffect(() => {
     dispatch({ type: 'FETCH_USER' });
-    dispatch({ type: 'FETCH_LOCATIONS'});
-    // dispatch({
-    //   type: 'FETCH_DETAILS',
-    //   payload: 1
-    // });
-   /*  dispatch({
-      type: 'FETCH_USER_R',
-      payload: user.id
-    }); */
-    // dispatch({
-    //   type: 'FETCH_LOCATION_R',
-    //   payload: 1
-    // });
+    // dispatch({ type: 'FETCH_LOCATIONS'});
   }, [dispatch]);
 
-  console.log('these are the values within the reducers', locations, details);
-  console.log('okay but what does user look like', user, user.id);
+  console.log('values on main app user:', user, 'locations:', locations, );
   return (
     <Router>
       <div>

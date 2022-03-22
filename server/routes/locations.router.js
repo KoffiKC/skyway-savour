@@ -21,6 +21,9 @@ router.get('/', (req, res) => {
 
 // this get is to select all of the data for a specific location
 router.get('/details/:id', (req, res) => {
+
+  console.log('HEY IM IN HERE!!!');
+  
   // GET route code here
   const sqlText = `
   SELECT * FROM "locations"

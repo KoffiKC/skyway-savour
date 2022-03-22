@@ -17,10 +17,10 @@ function LocationItem({ local }) {
 
     const handleClick = (local) => {
         console.log('clciky wohoo');
-        // dispatch({
-        //     type: 'FETCH_DETAILS',
-        //     payload: local.id
-        // })
+        dispatch({
+            type: 'FETCH_DETAILS',
+            payload: local.id
+        })
         // dispatch({
         //     type: 'FETCH_LOCATION_R',
         //     payload: local.id
