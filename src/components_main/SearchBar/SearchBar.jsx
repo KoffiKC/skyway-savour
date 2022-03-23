@@ -1,14 +1,23 @@
-import * as React from 'react';
+
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 
-
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 function SearchBar() {
 
+    const dispatch = useDispatch()
+
+    const [term, setTerm] = useState('')
+
     const handleClick =()=> {
-        console.log('woohooo!');
+        console.log('woohooo!', term);
+        dispatch({
+            type: 'RUN_SEARCH',
+            payload: term
+        })
+        setTerm('')
     }
 
 
@@ -28,6 +37,7 @@ function SearchBar() {
                     label="Search field"
                     type="search"
                     variant="filled"
+                    onChange={(e) => setTerm(e.target.value)}
                 />
                 <button onClick={handleClick}>Search</button>
             </div>

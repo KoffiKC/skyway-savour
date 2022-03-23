@@ -46,7 +46,7 @@ router.put('/user/:review_id', (req, res) => {
   const sqlText = `
   UPDATE "reviews" 
   SET "rating" = $1, "review" = $2
-  WHERE "id" = $3;`
+  WHERE "id" = $;`
 
   const reviewData = [req.body.rating, req.body.review, req.params.review_id]
   
