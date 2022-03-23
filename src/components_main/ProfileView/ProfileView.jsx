@@ -10,7 +10,6 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import UserReviews from '../UserReviews/UserReviews';
 
-
 function ProfileView() {
 
   const dispatch = useDispatch()

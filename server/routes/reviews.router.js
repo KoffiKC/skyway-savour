@@ -2,18 +2,18 @@ const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
 
-
-router.get('/location/:location_id', (req, res) => {
+// REJECT UNAUTh USER DOOODE
+router.get('/location/:location_id',  (req, res) => {
   // GET route code here
   // console.log(req.params.location_id);
   
 
   const sqlText = `SELECT "reviews".*, "users".username, "users".cohort FROM "reviews"
   JOIN "users" on "users".id = "reviews".user_id
-  WHERE "reviews".location_id = ${req.params.location_id};`
+  WHERE "reviews".location_id = $1;`
 
   pool
-    .query(sqlText)
+    .query(sqlText, [req.params.location_id])
     .then(result => res.send(result.rows))
     .catch((err) => {
       console.log('GET request for locations FAILED: ', err);
@@ -46,7 +46,7 @@ router.put('/user/:review_id', (req, res) => {
   const sqlText = `
   UPDATE "reviews" 
   SET "rating" = $1, "review" = $2
-  WHERE "id" = $3;`
+  WHERE "id" = $;`
 
   const reviewData = [req.body.rating, req.body.review, req.params.review_id]
   

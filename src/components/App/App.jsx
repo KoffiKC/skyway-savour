@@ -140,9 +140,9 @@ function App() {
             <p>where are the theeeeeeengs!</p>
           </Route>
 
-          <Route exact path="/">
+          {/* <Route exact path="/">
 
-          </Route>
+          </Route> */}
 
 
           {/* If none of the other routes matched, we will show a 404. */}
