@@ -1,4 +1,6 @@
 // modal things
+
+// importing all can potential slow things down
 import * as React from 'react';
 import { useDispatch } from 'react-redux';
 

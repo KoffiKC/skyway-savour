@@ -23,6 +23,7 @@ router.get('/details/:id', (req, res) => {
   // console.log('HEY IM IN HERE!!!');
   
   // GET route code here
+  // NO BLINGS -- edna
   const sqlText = `
   SELECT * FROM "locations"
   WHERE "locations".id = ${req.params.id};

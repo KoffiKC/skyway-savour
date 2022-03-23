@@ -6,6 +6,12 @@ import TextField from '@mui/material/TextField';
 import { useDispatch, useSelector } from 'react-redux';
 
 function SearchBar() {
+
+    const handleClick =()=> {
+        console.log('woohooo!');
+    }
+
+
     return (
         <Box
             component="form"
@@ -23,13 +29,10 @@ function SearchBar() {
                     type="search"
                     variant="filled"
                 />
+                <button onClick={handleClick}>Search</button>
             </div>
         </Box>
     );
-    <>
-
-    </>
-    )
 }
 
 export default SearchBar

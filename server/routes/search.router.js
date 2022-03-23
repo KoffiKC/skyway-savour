@@ -6,6 +6,7 @@ const router = express.Router();
 router.get('/:search_term', (req, res) => {
   // GET route code here
 
+  // case insensitive SQL thing??
   const sqlText = `
   SELECT DISTINCT "locations".* FROM "locations"
  JOIN "locations_food" on "locations".id = "locations_food".location_id
@@ -27,8 +28,8 @@ router.get('/sort/:id', (req, res) => {
 
   // GET route code here
   const sqlText = `
-  SELECT * FROM "locations"
-  WHERE "locations".id = ${req.params.id};
+  // SELECT * FROM "locations"
+  // WHERE "locations".id = ${req.params.id};
   `
   /* SELECT locations.*, reviews.* FROM "locations"
   JOIN "reviews" ON "reviews".location_id = "locations".id
