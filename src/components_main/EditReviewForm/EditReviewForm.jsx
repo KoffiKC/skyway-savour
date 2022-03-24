@@ -64,7 +64,7 @@ export default function EditReviewForm({Review}) {
     // console.log('the review', Review);
     return (
         <div>
-            <Button onClick={handleOpen}>Edit Review</Button>
+            <button onClick={handleOpen}>Edit Review</button>
             <Modal
                 open={open}
                 onClose={handleClose}

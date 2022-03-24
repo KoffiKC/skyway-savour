@@ -61,8 +61,8 @@ export default function ReviewForm({details}) {
     console.log('this is in the review form, i have bo clue whe itll console lol', Details);
     return (
         <div>
-            <Button onClick={handleOpen}>Add Review</Button>
-            {/* <button onClick={handleOpen}>Add Review</button> */}
+            {/* <Button onClick={handleOpen}>Add Review</Button> */}
+            <button onClick={handleOpen}>Add Review</button>
             <Modal
                 open={open}
                 onClose={handleClose}

@@ -21,6 +21,7 @@ import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 
 // main_components
+import MainMap from '../../components_main/MainMap/MainMap';
 import ProfileView from '../../components_main/ProfileView/ProfileView';
 import LocationView from '../../components_main/LocationView/LocationView';
 import LocationsList from '../../components_main/LocationsList/LocationsList';
@@ -145,9 +146,9 @@ function App() {
             <p>where are the theeeeeeengs!</p>
           </Route>
 
-          {/* <Route exact path="/">
-
-          </Route> */}
+          <Route exact path="/map">
+            <MainMap/>
+          </Route>
 
 
           {/* If none of the other routes matched, we will show a 404. */}
@@ -155,7 +156,7 @@ function App() {
             <h1>404</h1>
           </Route>
         </Switch>
-        <Footer />
+        {/* <Footer /> */}
       </div>
     </Router>
   );
