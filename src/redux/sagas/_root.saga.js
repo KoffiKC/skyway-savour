@@ -8,6 +8,8 @@ import userReviews from './user.reviews.saga';
 import locationsSaga from './locations.saga';
 import detailsSaga from './location_details.saga';
 import locationReviews from './location.reviews.saga';
+// search saga
+import searchSaga from './search.saga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -25,5 +27,6 @@ export default function* rootSaga() {
     detailsSaga(),
     userReviews(),
     locationReviews(),
+    searchSaga(),
   ]);
 }

@@ -8,25 +8,31 @@ import {
 
 import { useDispatch, useSelector } from 'react-redux';
 
-function ProfileView () {
-    return (
-        <>
-        
-        </>
-    )
+import UserReviews from '../UserReviews/UserReviews';
+
+function ProfileView() {
+
+  const dispatch = useDispatch()
+
+  // useEffect(() => {
+  //   dispatch({
+  //     type: 'FETCH_USER',
+  //     payload: user.id
+  //   });
+  // }, [])
+
+  const user = useSelector(store => store.user);
+  const reviews = useSelector(store => store.userReviews);
+
+  console.log('this is real, this si me!!', user, 'ALSO REVIEW WAU', reviews);
+  return (
+    <>
+      <h1>Hi my name is {user.username}</h1>
+      <h3>and I'm from the {user.cohort} cohort!</h3>
+        <UserReviews reviews={reviews}/>
+    </>
+  )
 }
 
 export default ProfileView
 
-
-
-/* {
-	"create exported component": {
-		"prefix": "componen",
-		"body": [
-			"console.log($1);",
-			"$2"
-		],
-		"description": "Log output to console"
-	}
-} */

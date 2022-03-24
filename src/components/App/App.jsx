@@ -19,7 +19,11 @@ import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
-import MainMap from '../../components_main/MainMap/MainMap';
+
+// main_components
+import ProfileView from '../../components_main/ProfileView/ProfileView';
+import LocationView from '../../components_main/LocationView/LocationView';
+import LocationsList from '../../components_main/LocationsList/LocationsList';
 
 import './App.css';
 
@@ -32,22 +36,10 @@ function App() {
 
   useEffect(() => {
     dispatch({ type: 'FETCH_USER' });
-    dispatch({ type: 'FETCH_LOCATIONS'});
-    dispatch({
-      type: 'FETCH_DETAILS',
-      payload: 1
-    });
-    dispatch({
-      type: 'FETCH_USER_R',
-      payload: 1
-    });
-    dispatch({
-      type: 'FETCH_LOCATION_R',
-      payload: 1
-    });
+    // dispatch({ type: 'FETCH_LOCATIONS'});
   }, [dispatch]);
 
-  console.log('these are the values within the reducers', locations, details);
+  console.log('values on main app user:', user, 'locations:', locations, );
   return (
     <Router>
       <div>
@@ -75,6 +67,8 @@ function App() {
             path="/user"
           >
             <UserPage />
+            
+           
           </ProtectedRoute>
 
           <ProtectedRoute
@@ -123,12 +117,37 @@ function App() {
               // If the user is already logged in, 
               // redirect them to the /user page
               // <Redirect to="/user" />
-              <MainMap />
+
+              // <p>I am the locatiosn weeee</p>
+              <LocationsList/>
               :
               // Otherwise, show the Landing page
               <LandingPage />
             }
           </Route>
+
+          <ProtectedRoute
+            // logged in shows InfoPage else shows LoginPage
+            exact
+            path="/profile"
+          >
+            <p>itsa my profile!</p>
+            <ProfileView />
+          </ProtectedRoute>
+
+          <Route exact path="/location/:id">
+            <p>location stuffs!</p>
+            <LocationView/>
+          </Route>
+
+          <Route exact path="/search">
+            <p>where are the theeeeeeengs!</p>
+          </Route>
+
+          {/* <Route exact path="/">
+
+          </Route> */}
+
 
           {/* If none of the other routes matched, we will show a 404. */}
           <Route>
