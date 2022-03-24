@@ -8,8 +8,7 @@
   
   .google-map {
     width: 100%;
-    height: 851px;
-    margin: 0px;
+    height: 380px;
   }
   
   .pin {
@@ -43,7 +42,14 @@
   
     .pin-icon {
       font-size: 10vw;
+      color:rebeccapurple;
     }
+    
+    .pin-icon {
+      font-size: 10vw;
+      color: red;
+    }
+    
     .user {
       width: 15vw;
     }

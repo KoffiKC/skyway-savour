@@ -3,6 +3,7 @@ import GoogleMapReact from 'google-map-react'
 import './map.css'
 import { Icon } from '@iconify/react'
 import locationIcon from '@iconify/icons-mdi/map-marker'
+// import baselinemylocation from '@iconify/icons-mdi/baseline-my-location'
 import { useDispatch, useSelector } from 'react-redux';
 
 
@@ -10,11 +11,20 @@ import { useDispatch, useSelector } from 'react-redux';
 
 const LocationPin = ({ text }) => (
     <div className="pin" /* onClick={() => console.log('if this were its own component, i could have all the opject info!')}*/>
-        <Icon icon={locationIcon} className="pin-icon" />
+        {text !== 'user' ? <Icon icon={locationIcon} className="pin-icon"/> :
+        <Icon icon="ic:baseline-my-location" color="#ff0af0" /> }
         <p className="pin-text">{text}</p>
+
     </div>
 )
 
+const UserPin = () => (
+    <div className="pin" /* onClick={() => console.log('if this were its own component, i could have all the opject info!')}*/>
+        <Icon icon="ic:baseline-my-location" color="#ff0af0" />
+        <p className="pin-text">{text}</p>
+
+    </div>
+)
 
 
 
@@ -22,14 +32,18 @@ export default function MainMap({ location, zoomLevel }) {
 
     const dispatch = useDispatch()
 
-    useEffect(()=> {
+    useEffect(() => {
         console.log('HAAI');
-        dispatch({ type: 'FETCH_LOCATIONS'})
+        dispatch({ type: 'FETCH_LOCATIONS' })
     }, [])
 
     const locations = useSelector(store => store.locations)
-    
+
     console.log(locations);
+
+    const handleClick = () => {
+        console.log('Hewpoooo');
+    }
 
     return (
         <>
@@ -38,23 +52,24 @@ export default function MainMap({ location, zoomLevel }) {
 
                 <div className="google-map">
                     <GoogleMapReact
-                        bootstrapURLKeys={{ key: process.env.MAP_API }}
+                        bootstrapURLKeys={{ key: 'AIzaSyAq_lGv4XjzCddzO_oKkBx5j2drPXR8U5A' }}
                         defaultCenter={
                             {
                                 address: '301 S 4th Ave #577, Minneapolis, MN 55415',
                                 lat: 44.9780,
                                 lng: -93.2635,
                             }}
-                        defaultZoom={17}
+                        defaultZoom={15}
                     >
                         {/* <img src="./Ihavenocluewhatimdoing.png" alt='I have no idea what im doing'></img> */}
                         {locations.map(marker => (
                             <LocationPin
-                            lat={marker.lat}
-                            lng={marker.lng}
-                            text={marker.address}
+                                lat={marker.lat}
+                                lng={marker.lng}
+                                text={marker.name}
+                                onClick={handleClick}
                             />
-                            ))}
+                        ))}
                         {/* <LocationPin
                             lat={44.9780}
                             lng={-93.2635}
