@@ -27,7 +27,7 @@ const MainMap = ({ location, zoomLevel }) => (
 
         <div className="google-map">
             <GoogleMapReact
-                bootstrapURLKeys={{ key: 'process.env.MAP_API' }}
+                bootstrapURLKeys={{ key: process.env.MAP_API }}
                 defaultCenter={
                     {
                         address: '301 S 4th Ave #577, Minneapolis, MN 55415',
