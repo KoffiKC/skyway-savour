@@ -4,7 +4,8 @@
   "private": true,
   "proxy": "http://localhost:5000",
   "dependencies": {
-
+    "@iconify/icons-mdi": "^1.2.2",
+    "@iconify/react": "^3.1.4",
     "@emotion/react": "^11.8.2",
     "@emotion/styled": "^11.8.1",
     "@mui/icons-material": "^5.5.1",

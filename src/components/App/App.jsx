@@ -87,8 +87,9 @@ function App() {
               // If the user is already logged in, 
               // redirect to the /user page
               // <Redirect to="/user" />
-              <MainMap />
+              
 
+              <Redirect to="/home" />
               :
               // Otherwise, show the login page
               <LoginPage />
