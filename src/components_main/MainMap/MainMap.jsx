@@ -19,11 +19,10 @@ const LocationPin = ({ text }) => (
     </div>
 )
 
-const UserPin = () => (
+const UserPin = ({ text }) => (
     <div className="pin" /* onClick={() => console.log('if this were its own component, i could have all the opject info!')}*/>
         <Icon icon="ic:baseline-my-location" color="#ff0af0" />
         <p className="pin-text">{text}</p>
-
     </div>
 )
 
@@ -52,7 +51,7 @@ const UserPin = () => (
 
                 <div className="google-map">
                     <GoogleMapReact
-                        bootstrapURLKeys={{ key: 'AIzaSyAq_lGv4XjzCddzO_oKkBx5j2drPXR8U5A' }}
+                        bootstrapURLKeys={{ key: process.env.MAP_API }}
                         defaultCenter={
                             {
                                 address: '301 S 4th Ave #577, Minneapolis, MN 55415',
@@ -70,7 +69,7 @@ const UserPin = () => (
                                 onClick={handleClick}
                             />
                         ))}
-                        {/* <LocationPin
+                        {/* <UserPin
                             lat={44.9780}
                             lng={-93.2635}
                             text={'prime digital academy'}

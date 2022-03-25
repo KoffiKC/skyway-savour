@@ -34,7 +34,6 @@ function LocationView() {
     setMap(!map)
     getLocation()
   }
-
   const [lat, setLat] = useState(null);
   const [lng, setLng] = useState(null);
   const [status, setStatus] = useState(null);
@@ -50,9 +49,8 @@ function LocationView() {
   }
 
   const getLocation = () => {
-    if (!navigator.geolocation) {
-      setStatus('Geolocation is not supported by your browser');
-    } else {
+      console.log('is anything happening?');
+
       setStatus('Locating...');
       navigator.geolocation.getCurrentPosition((position) => {
         setStatus('you have been geolocated');
@@ -62,7 +60,14 @@ function LocationView() {
         setStatus('Unable to retrieve your location');
       });
     }
-  }
+  
+    let userLocal = {
+      status: status,
+      lat: lat,
+      lng: lng,
+      name: "ITS MEEEEE!"
+    }
+  
 
 
   // const reviews = useSelector(store => store.locationReviews);
@@ -76,12 +81,14 @@ function LocationView() {
 
   const details = location_details[0]
 
-  console.log('location details and location id', lat, lng);
+  // console.log('location details and location id', lat, lng);
+  console.log('The LAT and the LN are:', lat, lng,status);
+
   return (
     <>
       <h1>{details?.name}</h1>
       {map ? <img src={details?.image_url} alt="" width={375} /> :
-        <LocationMap details={details} getLocation={getLocation} />
+        <LocationMap details={details} user={userLocal} />
       }
       {/* <img src={details?.image_url} alt="" width={375} />
       <LocationMap/> */}

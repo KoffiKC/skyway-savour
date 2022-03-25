@@ -5,10 +5,16 @@ import { Icon } from '@iconify/react'
 import locationIcon from '@iconify/icons-mdi/map-marker'
 // import baselinemylocation from '@iconify/icons-mdi/baseline-my-location'
 import { useDispatch, useSelector } from 'react-redux';
+import { useState } from 'react';
 
 
 
 export default function LocationMap({details, user}) {
+
+
+
+
+  
 
 const LocationPin = ({ text }) => (
     <div className="pin" /* onClick={() => console.log('if this were its own component, i could have all the opject info!')}*/>
@@ -19,9 +25,9 @@ const LocationPin = ({ text }) => (
     </div>
 )
 
-const UserPin = () => (
+const UserPin = ({text}) => (
     <div className="pin" /* onClick={() => console.log('if this were its own component, i could have all the opject info!')}*/>
-        <Icon icon="ic:baseline-my-location" color="#ff0af0" />
+        <Icon icon="ic:baseline-my-location" color="#990099" width="30" height="30" ></Icon>
         <p className="pin-text">{text}</p>
 
     </div>
@@ -32,18 +38,13 @@ const UserPin = () => (
 
     const dispatch = useDispatch()
 
-    useEffect(() => {
-        console.log('HAAI');
-        dispatch({ type: 'FETCH_LOCATIONS' })
-    }, [])
+    // useEffect(() => {
+    //     console.log('HAAI');
+    //     getLocation()
+    // }, [])
 
-    const locations = useSelector(store => store.locations)
 
-    console.log(locations);
 
-    const handleClick = () => {
-        console.log('Hewpoooo');
-    }
 
     return (
         <>
@@ -52,7 +53,7 @@ const UserPin = () => (
 
                 <div className="google-map">
                     <GoogleMapReact
-                        bootstrapURLKeys={{ key: 'AIzaSyAq_lGv4XjzCddzO_oKkBx5j2drPXR8U5A' }}
+                        bootstrapURLKeys={{ key: process.env.MAP_API }}
                         defaultCenter={
                             {
                                 address: '',
@@ -74,6 +75,11 @@ const UserPin = () => (
                             lat={details.lat}
                             lng={details.lng}
                             text={`${details.name}`}
+                        />
+                        <UserPin
+                            lat={user.lat}
+                            lng={user.lng}
+                            text={user.name}
                         />
                     </GoogleMapReact>
                 </div>
