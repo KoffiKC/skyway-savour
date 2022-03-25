@@ -5,26 +5,66 @@ import { Icon } from '@iconify/react'
 import locationIcon from '@iconify/icons-mdi/map-marker'
 // import baselinemylocation from '@iconify/icons-mdi/baseline-my-location'
 import { useDispatch, useSelector } from 'react-redux';
+import { useState } from 'react';
 
 
 
 export default function MainMap({ location, zoomLevel }) {
 
-const LocationPin = ({ text }) => (
-    <div className="pin" /* onClick={() => console.log('if this were its own component, i could have all the opject info!')}*/>
-        {text !== 'user' ? <Icon icon={locationIcon} className="pin-icon"/> :
-        <Icon icon="ic:baseline-my-location" color="#ff0af0" /> }
-        <p className="pin-text">{text}</p>
+    useEffect(()=>{
+        getLocation()
+    },[])
 
-    </div>
-)
+    const [lat, setLat] = useState(null);
+    const [lng, setLng] = useState(null);
+    const [status, setStatus] = useState(null);
 
-const UserPin = ({ text }) => (
-    <div className="pin" /* onClick={() => console.log('if this were its own component, i could have all the opject info!')}*/>
-        <Icon icon="ic:baseline-my-location" color="#ff0af0" />
-        <p className="pin-text">{text}</p>
-    </div>
-)
+    if ('geolocation' in navigator) {
+        /* geolocation is available */
+        console.log('yes');
+
+    } else {
+        /* geolocation IS NOT available */
+        console.log("nope");
+
+    }
+
+    const getLocation = () => {
+        console.log('is anything happening?');
+
+        setStatus('Locating...');
+        navigator.geolocation.getCurrentPosition((position) => {
+            setStatus('you have been geolocated');
+            setLat(position.coords.latitude);
+            setLng(position.coords.longitude);
+        }, () => {
+            setStatus('Unable to retrieve your location');
+        });
+    }
+
+    // let userLocal = {
+    //   status: status,
+    //   lat: lat,
+    //   lng: lng,
+    //   name: "ITS MEEEEE!"
+    // }
+
+
+    const LocationPin = ({ text }) => (
+        <div className="pin" /* onClick={() => console.log('if this were its own component, i could have all the opject info!')}*/>
+            {text !== 'user' ? <Icon icon={locationIcon} className="pin-icon" /> :
+                <Icon icon="ic:baseline-my-location" color="#ff0af0" />}
+            <p className="pin-text">{text}</p>
+
+        </div>
+    )
+
+    const UserPin = ({ text }) => (
+        <div className="pin" /* onClick={() => console.log('if this were its own component, i could have all the opject info!')}*/>
+            <Icon icon="ic:baseline-my-location" color="#ff0af0" />
+            <p className="pin-text">{text}</p>
+        </div>
+    )
 
 
 
@@ -58,7 +98,7 @@ const UserPin = ({ text }) => (
                                 lat: 44.9780,
                                 lng: -93.2635,
                             }}
-                        defaultZoom={15}
+                        defaultZoom={14}
                     >
                         {/* <img src="./Ihavenocluewhatimdoing.png" alt='I have no idea what im doing'></img> */}
                         {locations.map(marker => (
@@ -69,11 +109,11 @@ const UserPin = ({ text }) => (
                                 onClick={handleClick}
                             />
                         ))}
-                        {/* <UserPin
-                            lat={44.9780}
-                            lng={-93.2635}
-                            text={'prime digital academy'}
-                        /> */}
+                        <UserPin
+                            lat={lat}
+                            lng={lng}
+                            text={'IT meeeee'}
+                        />
                     </GoogleMapReact>
                 </div>
             </div>
