@@ -87,7 +87,7 @@ function LocationView() {
       <LocationMap/> */}
       <p>{details?.description}</p>
       <h3>{details?.price_status}</h3>
-      <button onClick={handleClick}>Add Review</button>
+      {/* <button onClick={handleClick}>Add Review</button> */}
       <button onClick={() => toggleMap(map)}>Show map</button>
       <ReviewForm details={location_details} />
       <LocationReviews   />

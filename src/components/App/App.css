@@ -6,7 +6,12 @@ body,
 */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #efacf2;
   margin: 0px;
+}
+
+input {
+  background-color: antiquewhite;
 }
 /*
 img {

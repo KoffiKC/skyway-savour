@@ -12,8 +12,8 @@ export default function LocationMap({details, user}) {
 
 const LocationPin = ({ text }) => (
     <div className="pin" /* onClick={() => console.log('if this were its own component, i could have all the opject info!')}*/>
-        {text === `${details.name}` ? <Icon icon="ic:baseline-my-location" color="#ff0af0" />  :
-        <Icon icon={locationIcon} className="pin-icon"/> }
+        {text === `${details.name}` ?  <Icon icon={locationIcon} className="pin-icon"/> :
+        <Icon icon="ic:baseline-my-location" color="#ff0af0" /> }
         <p className="pin-text">{text}</p>
 
     </div>
@@ -73,7 +73,7 @@ const UserPin = () => (
                         <LocationPin
                             lat={details.lat}
                             lng={details.lng}
-                            text={'prime digital academy'}
+                            text={`${details.name}`}
                         />
                     </GoogleMapReact>
                 </div>

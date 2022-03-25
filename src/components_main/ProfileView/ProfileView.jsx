@@ -14,12 +14,12 @@ function ProfileView() {
 
   const dispatch = useDispatch()
 
-  // useEffect(() => {
-  //   dispatch({
-  //     type: 'FETCH_USER',
-  //     payload: user.id
-  //   });
-  // }, [])
+  useEffect(() => {
+    dispatch({
+      type: 'FETCH_USER_R',
+      payload: user.id
+    });
+  }, [])
 
   const user = useSelector(store => store.user);
   const reviews = useSelector(store => store.userReviews);
