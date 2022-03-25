@@ -5,6 +5,7 @@ import locations from './locations.reducer';
 import details from './details.reducer';
 import locationReviews from './locationReviews.reducer';
 import userReviews from './userReviews.reducer'
+import selected from './selected.reducer';
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
 // This is imported in index.js as rootSaga
@@ -18,7 +19,7 @@ const rootReducer = combineReducers({
   details, // holds only information on one location
   locationReviews, // holds the reviews for a specific location
   userReviews, // hold all the reviews made by an individual user
-
+  selected, // holds data for the specific location clicked on the map view
 });
 
 export default rootReducer;

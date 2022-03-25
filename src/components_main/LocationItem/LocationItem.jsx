@@ -15,7 +15,7 @@ function LocationItem({ local }) {
     const dispatch = useDispatch()
     const history = useHistory()
 
-    const handleClick = (local) => {
+    const handleClick = () => {
         console.log('clciky wohoo');
         // dispatch({
         //     type: 'FETCH_DETAILS',
@@ -28,11 +28,19 @@ function LocationItem({ local }) {
         history.push(`/location/${local.id}`)
     }
 
+    const showOnMap = () => {
+        dispatch({
+            type: 'SET_SELECTED',
+            payload: local
+        })
+    }
+
     return (
         <>
             <h1>{local?.name}</h1>
             <h3>{local?.description}</h3>
-            <button onClick={() => handleClick(local)}>MORE INFO</button>
+            <button onClick={handleClick}>MORE INFO</button>
+            <button onClick={showOnMap}>show on map</button>
         </>
     )
 }

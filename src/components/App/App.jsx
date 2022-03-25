@@ -148,6 +148,7 @@ function App() {
 
           <Route exact path="/map">
             <MainMap/>
+            <LocationsList/>
           </Route>
 
 
