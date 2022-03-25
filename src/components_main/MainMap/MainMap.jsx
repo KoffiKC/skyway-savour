@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 
 
+export default function MainMap({ location, zoomLevel }) {
 
 const LocationPin = ({ text }) => (
     <div className="pin" /* onClick={() => console.log('if this were its own component, i could have all the opject info!')}*/>
@@ -28,7 +29,6 @@ const UserPin = () => (
 
 
 
-export default function MainMap({ location, zoomLevel }) {
 
     const dispatch = useDispatch()
 
