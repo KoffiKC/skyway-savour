@@ -15,7 +15,7 @@ function LocationView() {
   const id = useParams().id
   const dispatch = useDispatch();
 
-  const [map, setMap] = useState(false)
+  const [map, setMap] = useState(true)
 
   useEffect(() => {
     dispatch({
@@ -26,11 +26,42 @@ function LocationView() {
       type: 'FETCH_LOCATION_R',
       payload: id
   })
+  // getLocation()
   }, [])
 
   const toggleMap =()=>{
     console.log('boops');
     setMap(!map)
+    getLocation()
+  }
+
+  const [lat, setLat] = useState(null);
+  const [lng, setLng] = useState(null);
+  const [status, setStatus] = useState(null);
+
+  if ('geolocation' in navigator) {
+    /* geolocation is available */
+    console.log('yes');
+
+  } else {
+    /* geolocation IS NOT available */
+    console.log("nope");
+
+  }
+
+  const getLocation = () => {
+    if (!navigator.geolocation) {
+      setStatus('Geolocation is not supported by your browser');
+    } else {
+      setStatus('Locating...');
+      navigator.geolocation.getCurrentPosition((position) => {
+        setStatus('you have been geolocated');
+        setLat(position.coords.latitude);
+        setLng(position.coords.longitude);
+      }, () => {
+        setStatus('Unable to retrieve your location');
+      });
+    }
   }
 
 
@@ -45,12 +76,12 @@ function LocationView() {
 
   const details = location_details[0]
 
-  console.log('location details and location id', details, id);
+  console.log('location details and location id', lat, lng);
   return (
     <>
       <h1>{details?.name}</h1>
       {map ? <img src={details?.image_url} alt="" width={375} /> :
-        <LocationMap/>
+        <LocationMap details={details} getLocation={getLocation} />
       }
       {/* <img src={details?.image_url} alt="" width={375} />
       <LocationMap/> */}

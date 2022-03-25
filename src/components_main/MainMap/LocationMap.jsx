@@ -8,11 +8,12 @@ import { useDispatch, useSelector } from 'react-redux';
 
 
 
+export default function LocationMap({details, user}) {
 
 const LocationPin = ({ text }) => (
     <div className="pin" /* onClick={() => console.log('if this were its own component, i could have all the opject info!')}*/>
-        {text === 'Chipotle' ? <Icon icon={locationIcon} className="pin-icon"/> :
-        <Icon icon="ic:baseline-my-location" color="#ff0af0" /> }
+        {text === `${details.name}` ? <Icon icon="ic:baseline-my-location" color="#ff0af0" />  :
+        <Icon icon={locationIcon} className="pin-icon"/> }
         <p className="pin-text">{text}</p>
 
     </div>
@@ -28,7 +29,6 @@ const UserPin = () => (
 
 
 
-export default function LocationMap({ location, zoomLevel }) {
 
     const dispatch = useDispatch()
 
@@ -55,26 +55,26 @@ export default function LocationMap({ location, zoomLevel }) {
                         bootstrapURLKeys={{ key: 'AIzaSyAq_lGv4XjzCddzO_oKkBx5j2drPXR8U5A' }}
                         defaultCenter={
                             {
-                                address: '301 S 4th Ave #577, Minneapolis, MN 55415',
-                                lat: 44.9780,
-                                lng: -93.2635,
+                                address: '',
+                                lat: details.lat,
+                                lng: details.lng,
                             }}
                         defaultZoom={15}
                     >
                         {/* <img src="./Ihavenocluewhatimdoing.png" alt='I have no idea what im doing'></img> */}
-                        {locations.map(marker => (
+                        {/* {locations.map(marker => (
                             <LocationPin
                                 lat={marker.lat}
                                 lng={marker.lng}
                                 text={marker.name}
                                 onClick={handleClick}
                             />
-                        ))}
-                        {/* <LocationPin
-                            lat={44.9780}
-                            lng={-93.2635}
+                        ))} */}
+                        <LocationPin
+                            lat={details.lat}
+                            lng={details.lng}
                             text={'prime digital academy'}
-                        /> */}
+                        />
                     </GoogleMapReact>
                 </div>
             </div>
