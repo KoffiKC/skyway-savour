@@ -71,7 +71,7 @@ function App() {
             
            
           </ProtectedRoute>
-
+ 
           <ProtectedRoute
             // logged in shows InfoPage else shows LoginPage
             exact
@@ -133,8 +133,7 @@ function App() {
             exact
             path="/profile"
           >
-            <p>itsa my profile!</p>
-            <ProfileView />
+           <p>hi</p>
           </ProtectedRoute>
 
           <Route exact path="/location/:id">
