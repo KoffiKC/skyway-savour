@@ -176,7 +176,7 @@ function App() {
             exact
             path="/profile"
           >
-            <p>hi</p>
+            <ProfileView/>
           </ProtectedRoute>
 
           <Route exact path="/location/:id">

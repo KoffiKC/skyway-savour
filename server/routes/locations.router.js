@@ -5,7 +5,11 @@ const router = express.Router();
 
 router.get('/', (req, res) => {
   // GET route code here
-  const sqlText = `SELECT * FROM "locations";`
+  const sqlText = `SELECT "locations".*, AVG("reviews".rating) as average FROM "locations"
+  JOIN "reviews" ON "reviews".location_id = "locations".id
+  Group BY "locations".id
+  Order BY "locations".id;
+ `
 
   pool
     .query(sqlText)
