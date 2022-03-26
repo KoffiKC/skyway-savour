@@ -25,7 +25,7 @@ function SearchBar() {
         <Box
             component="form"
             sx={{
-                '& .MuiTextField-root': { m: 1, width: '45ch' },
+                '& .MuiTextField-root': { m: 0, width: '45ch' },
             }}
             noValidate
             autoComplete="off"

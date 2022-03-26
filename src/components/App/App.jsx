@@ -119,7 +119,7 @@ function App() {
               // If the user is already logged in, 
               // redirect them to the /user page
               // <Redirect to="/user" />
-
+              
               // <p>I am the locatiosn weeee</p>
               <LocationsList/>
               :
@@ -157,7 +157,7 @@ function App() {
             <h1>404</h1>
           </Route>
         </Switch>
-        {/* <Footer /> */}
+            <Footer />
       </div>
     </Router>
   );

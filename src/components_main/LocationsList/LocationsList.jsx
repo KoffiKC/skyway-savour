@@ -9,6 +9,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import LocationItem from '../LocationItem/LocationItem';
+import MainMap from '../MainMap/MainMap';
 import SearchBar from '../SearchBar/SearchBar';
 
 function LocationsList() {
@@ -26,6 +27,7 @@ function LocationsList() {
     return (
         <>
             <SearchBar/>
+            <MainMap/>
             {locations?.map(local => (
                     <LocationItem
                         key={local.id}
