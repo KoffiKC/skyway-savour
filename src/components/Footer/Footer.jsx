@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 import './Footer.css';
 import Box from '@mui/material/Box';
@@ -18,16 +19,23 @@ import MapIcon from '@mui/icons-material/Map';
 
 function Footer() {
   const [value, setValue] = React.useState(0);
+  const history = useHistory();
 
+  const handleClick = (page) => {
+    // console.log(page, 'wow hats so cool');
+    history.push(`/${page}`)
+  }
   return (
     <>
       <div className='bottom-nav'>
       <Box sx={{ '& > :not(style)': { m: 1.4 } }}>
-        <Fab color="secondary" variant="extended" aria-label="Search">
+        <Fab color="secondary" variant="extended" aria-label="Search"
+        onClick={() => handleClick('search')}>
           <ManageSearchIcon />
           search
         </Fab>
-        <Fab color="secondary" variant="extended" aria-label="Home">
+        <Fab color="secondary" variant="extended" aria-label="Home"
+        onClick={() => handleClick('home')}>
           <MapIcon />
           Home
         </Fab>
@@ -35,7 +43,8 @@ function Footer() {
         <NavigationIcon sx={{ mr: 1 }} />
         Navigate
       </Fab> */}
-        <Fab color="secondary" variant="extended" aria-label="Profile">
+        <Fab color="secondary" variant="extended" aria-label="Profile"
+        onClick={() => handleClick('profile')}>
           <EmojiEmotionsIcon />
           Profile
         </Fab>

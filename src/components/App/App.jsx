@@ -33,7 +33,7 @@ import Drawer from '@mui/material/Drawer';
 
 const drawerWidth = 393;
 
-const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
+const Left = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
   ({ theme, open }) => ({
     flexGrow: 1,
     padding: theme.spacing(0),
@@ -206,11 +206,11 @@ function App() {
               >
                 <button onClick={handleDrawerClose}>Hewoo</button>
               </Drawer>
-              <Main open={openLeft}>
+              <Left open={openLeft}>
                 <button onClick={handleDrawerRight}>Adios!</button>
                 <button onClick={handleDrawerleft}>Hewoo</button>
                 <LocationsList />
-              </Main>
+              </Left>
               <Drawer
                 sx={{
                   width: drawerWidth,
@@ -233,8 +233,8 @@ function App() {
             <h1>404</h1>
           </Route>
         </Switch>
-        <Footer />
       </div>
+        <Footer />
     </Router>
   );
 }
