@@ -33,7 +33,7 @@ import Drawer from '@mui/material/Drawer';
 
 const drawerWidth = 393;
 
-const Left = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
+const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
   ({ theme, open }) => ({
     flexGrow: 1,
     padding: theme.spacing(0),
@@ -69,6 +69,11 @@ function App() {
 
   //Drawer functionality
   const [openLeft, setOpenLeft] = React.useState(false);
+  const [openRight, setOpenRight] = React.useState(false);
+
+  const handleDrawerRight = () => {
+    setOpenRight(!openRight);
+  };
 
   const handleDrawerleft = () => {
     setOpenLeft(!openLeft);
@@ -186,7 +191,6 @@ function App() {
           <Route exact path="/map">
 
             <Box sx={{ display: 'flex' }}>
-
               <Drawer
                 sx={{
                   width: drawerWidth,
@@ -200,18 +204,30 @@ function App() {
                 anchor="left"
                 open={openLeft}
               >
-                <p>something inside of here!</p>
                 <button onClick={handleDrawerClose}>Hewoo</button>
               </Drawer>
-              <Left open={openLeft}>
+              <Main open={openLeft}>
+                <button onClick={handleDrawerRight}>Adios!</button>
                 <button onClick={handleDrawerleft}>Hewoo</button>
-
                 <LocationsList />
-              </Left>
+              </Main>
+              <Drawer
+                sx={{
+                  width: drawerWidth,
+                  flexShrink: 0,
+                  "& .MuiDrawer-paper": {
+                    width: drawerWidth
+                  }
+                }}
+                variant="persistent"
+                anchor="right"
+                open={openRight}
+              >
+                <p>Its me again!</p>
+                <button onClick={handleDrawerClose}>Adios!</button>
+              </Drawer>
             </Box>
           </Route>
-
-
           {/* If none of the other routes matched, we will show a 404. */}
           <Route>
             <h1>404</h1>

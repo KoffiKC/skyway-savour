@@ -9,6 +9,7 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 
 import UserReviews from '../UserReviews/UserReviews';
+import LogOutButton from '../../components/LogOutButton/LogOutButton';
 
 function ProfileView() {
 
@@ -30,6 +31,7 @@ function ProfileView() {
       <h1>Hi my name is {user.username}</h1>
       <h3>and I'm from the {user.cohort} cohort!</h3>
         <UserReviews reviews={reviews}/>
+      <LogOutButton/>
     </>
   )
 }
