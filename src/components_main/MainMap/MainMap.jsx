@@ -9,7 +9,7 @@ import { useState } from 'react';
 
 
 
-export default function MainMap({ location, zoomLevel }) {
+export default function MainMap() {
 
     useEffect(()=>{
         getLocation()
@@ -52,8 +52,8 @@ export default function MainMap({ location, zoomLevel }) {
 
     const LocationPin = ({ text }) => (
         <div className="pin" /* onClick={() => console.log('if this were its own component, i could have all the opject info!')}*/>
-            {text !== 'user' ? <Icon icon={locationIcon} className="pin-icon" /> :
-                <Icon icon="ic:baseline-my-location" color="#ff0af0" />}
+            {text === selected.name  ? <Icon icon={locationIcon} className="pin-icon" color="#ff0af0" width="30" height="30" /> :
+                <Icon icon={locationIcon} width="23" height="23"   />}
             <p className="pin-text">{text}</p>
 
         </div>
@@ -61,7 +61,7 @@ export default function MainMap({ location, zoomLevel }) {
 
     const UserPin = ({ text }) => (
         <div className="pin" /* onClick={() => console.log('if this were its own component, i could have all the opject info!')}*/>
-            <Icon icon="ic:baseline-my-location" color="#ff0af0" />
+            <Icon icon="ic:baseline-my-location" color="#909" width="23" height="23" />
             <p className="pin-text">{text}</p>
         </div>
     )
@@ -77,7 +77,7 @@ export default function MainMap({ location, zoomLevel }) {
     }, [])
 
     const locations = useSelector(store => store.locations)
-
+    const selected = useSelector(store => store.selected)
     console.log(locations);
 
     const handleClick = () => {
@@ -87,7 +87,7 @@ export default function MainMap({ location, zoomLevel }) {
     return (
         <>
             <div className="map">
-                <h2 className="map-h2">Skyway Savor!</h2>
+
 
                 <div className="google-map">
                     <GoogleMapReact
@@ -99,8 +99,10 @@ export default function MainMap({ location, zoomLevel }) {
                                 lng: -93.2635,
                             }}
                         defaultZoom={14}
+                        scrollWheelZoom='center'
                     >
                         {/* <img src="./Ihavenocluewhatimdoing.png" alt='I have no idea what im doing'></img> */}
+                        
                         {locations.map(marker => (
                             <LocationPin
                                 lat={marker.lat}
