@@ -36,7 +36,7 @@ function LocationItem({ local }) {
     }
 
     return (
-        <div >
+        <div className='location-item' >
             <Card sx={{ maxWidth: 345, maxHeight: 320 }}>
                 <CardMedia
                     component="img"

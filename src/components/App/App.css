@@ -117,15 +117,30 @@ input {
 } */
 
 .location-list {
-  object-fit: contain;
+  width: 100%;
+  display:block;
+  overflow:hidden;
+}
+.carousel {
+  display: block;
+  width: 100%;
   height: 320px;
-  width: auto;
-  display: flex;
-  flex-direction: row;
-  border-radius: 10px;
-  margin: auto;
-  width: 85%;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  padding: 20px;
+  overflow-x: scroll;
+  padding: 10px;
+  margin: 0;
+  white-space: nowrap; 
+  border-top: 2px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+.location-item{
+  display: inline-block;
+ 
+  margin: 0 10px;
+  
+  background: rgba(0, 0, 0, 0.05) no-repeat center center;
+  background-size: cover;
+  position:relative;
+  border-radius: 20px;
+  box-shadow: 0 0 10px #dfdfdf;
 }
