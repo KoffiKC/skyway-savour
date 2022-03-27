@@ -45,6 +45,8 @@ function LocationItem({ local }) {
                     image={local?.image_url}
                 />
                 <CardContent sx={{ p: 0 }} >
+                    <div>
+                    <div className='buttons'> 
                     <Button 
                     color="secondary" 
                     size="large"
@@ -54,7 +56,10 @@ function LocationItem({ local }) {
                     color="secondary"
                     onClick={showOnMap}
                     endIcon={<LocationOnIcon />}>Map</Button>
-                    <Rating name="read-only" value={local.average} sx={{ fontSize: 65 }} readOnly />
+                    {/* <h4>{local?.name}</h4>    */}
+                    </div>
+                    <Rating name="read-only" value={Number(local.average)} sx={{ fontSize: 65 }} readOnly />
+                    </div>
                 </CardContent>
             </Card>
         </div>

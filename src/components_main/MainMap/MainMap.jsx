@@ -52,9 +52,10 @@ export default function MainMap() {
 
     const LocationPin = ({ text }) => (
         <div className="pin" /* onClick={() => console.log('if this were its own component, i could have all the opject info!')}*/>
-            {text === selected.name  ? <Icon icon={locationIcon} className="pin-icon" color="#ff0af0" width="30" height="30" /> :
+            {text === selected.name  ? <><Icon icon={locationIcon} className="pin-icon" color="#ff0af0" width="30" height="30" />
+            </> :
                 <Icon icon={locationIcon} width="23" height="23"   />}
-            <p className="pin-text">{text}</p>
+            {/* <p className="pin-text">{text}</p> */}
 
         </div>
     )
@@ -98,8 +99,8 @@ export default function MainMap() {
                                 lat: 44.9780,
                                 lng: -93.2635,
                             }}
-                        defaultZoom={14}
-                        scrollWheelZoom='center'
+                        defaultZoom={13}
+                        options={{ gestureHandling: 'none', disableDefaultUI: true}}
                     >
                         {/* <img src="./Ihavenocluewhatimdoing.png" alt='I have no idea what im doing'></img> */}
                         
