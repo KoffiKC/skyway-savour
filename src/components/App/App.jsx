@@ -187,7 +187,7 @@ function App() {
             <p>where are the theeeeeeengs!</p>
           </Route>
 
-          <Route exact path="/map">
+          {/* <Route exact path="/map">
 
             <Box sx={{ display: 'flex' }}>
               <Drawer
@@ -226,14 +226,15 @@ function App() {
                 <button onClick={handleDrawerClose}>Adios!</button>
               </Drawer>
             </Box>
-          </Route>
+          </Route> */}
           {/* If none of the other routes matched, we will show a 404. */}
           <Route>
             <h1>404</h1>
           </Route>
         </Switch>
       </div>
-        <Footer />
+      {user.id ?  <Footer />  : <></>}
+        
     </Router>
   );
 }
