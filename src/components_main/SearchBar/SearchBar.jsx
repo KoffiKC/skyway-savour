@@ -11,7 +11,7 @@ function SearchBar() {
 
     const [term, setTerm] = useState('')
 
-    const handleClick =()=> {
+    const handleClick =(term)=> {
         console.log('woohooo!', term);
         dispatch({
             type: 'RUN_SEARCH',
@@ -37,9 +37,9 @@ function SearchBar() {
                     label="Search field"
                     type="search"
                     variant="filled"
-                    onChange={(e) => setTerm(e.target.value)}
+                    onChange={(e) => handleClick(e.target.value)}
                 />
-                <button onClick={handleClick}>Search</button>
+                {/* <button onClick={handleClick}>Search</button> */}
             </div>
         </Box>
     );

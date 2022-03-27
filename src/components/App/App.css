@@ -6,13 +6,13 @@ body,
 */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #efacf2;
+  background-color: #85f7ff;
   margin: 0px;
 }
 
-input {
-  background-color: antiquewhite;
-}
+/* input {
+  background-color: rgb(255, 210, 152);
+} */
 /*
 img {
   display: inline-block;
