@@ -96,10 +96,10 @@ export default function MainMap() {
                         defaultCenter={
                             {
                                 address: '301 S 4th Ave #577, Minneapolis, MN 55415',
-                                lat: 44.9780,
-                                lng: -93.2635,
+                                lat: 44.9774,
+                                lng: -93.2720,
                             }}
-                        defaultZoom={13}
+                        defaultZoom={14}
                         options={{ gestureHandling: 'none', disableDefaultUI: true}}
                     >
                         {/* <img src="./Ihavenocluewhatimdoing.png" alt='I have no idea what im doing'></img> */}
