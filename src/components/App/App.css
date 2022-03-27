@@ -115,3 +115,17 @@ input {
   margin: 5px;
   margin-bottom: 10px;
 } */
+
+.location-list {
+  object-fit: contain;
+  height: 320px;
+  width: auto;
+  display: flex;
+  flex-direction: row;
+  border-radius: 10px;
+  margin: auto;
+  width: 85%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding: 20px;
+}

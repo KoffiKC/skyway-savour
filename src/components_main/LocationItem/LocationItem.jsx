@@ -36,7 +36,7 @@ function LocationItem({ local }) {
     }
 
     return (
-        <>
+        <div >
             <Card sx={{ maxWidth: 345, maxHeight: 320 }}>
                 <CardMedia
                     component="img"
@@ -57,7 +57,7 @@ function LocationItem({ local }) {
                     <Rating name="read-only" value={local.average} sx={{ fontSize: 65 }} readOnly />
                 </CardContent>
             </Card>
-        </>
+        </div>
     )
 }
 

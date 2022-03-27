@@ -28,11 +28,13 @@ function LocationsList() {
         <>
             <SearchBar/>
             <MainMap/>
+            <div className='location-list'>
             {locations?.map(local => (
                     <LocationItem
                         key={local.id}
                         local={local} />   
             ))}
+            </div>
         </>
     )
 }
