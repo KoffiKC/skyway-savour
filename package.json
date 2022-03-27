@@ -4,9 +4,10 @@
   "private": true,
   "proxy": "http://localhost:5000",
   "dependencies": {
-
     "@emotion/react": "^11.8.2",
     "@emotion/styled": "^11.8.1",
+    "@iconify/icons-mdi": "^1.2.2",
+    "@iconify/react": "^3.1.4",
     "@mui/icons-material": "^5.5.1",
     "@mui/material": "^5.5.1",
     "axios": "^0.21.1",
@@ -22,6 +23,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.6",
+    "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^5.0",
     "redux": "^4.1.2",

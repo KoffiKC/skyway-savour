@@ -21,9 +21,37 @@ import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 
 // main_components
+import MainMap from '../../components_main/MainMap/MainMap';
 import ProfileView from '../../components_main/ProfileView/ProfileView';
 import LocationView from '../../components_main/LocationView/LocationView';
 import LocationsList from '../../components_main/LocationsList/LocationsList';
+
+//Drawer components
+import { styled, useTheme } from '@mui/material/styles';
+import Box from '@mui/material/Box';
+import Drawer from '@mui/material/Drawer';
+
+const drawerWidth = 393;
+
+const Left = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
+  ({ theme, open }) => ({
+    flexGrow: 1,
+    padding: theme.spacing(0),
+    transition: theme.transitions.create('margin', {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.leavingScreen,
+    }),
+    marginLeft: `-${drawerWidth}px`,
+    ...(open && {
+      transition: theme.transitions.create('margin', {
+        easing: theme.transitions.easing.easeOut,
+        duration: theme.transitions.duration.enteringScreen,
+      }),
+      margin: 0,
+      padding: 0,
+    }),
+  }),
+);
 
 import './App.css';
 
@@ -39,11 +67,26 @@ function App() {
     // dispatch({ type: 'FETCH_LOCATIONS'});
   }, [dispatch]);
 
-  console.log('values on main app user:', user, 'locations:', locations, );
+  //Drawer functionality
+  const [openLeft, setOpenLeft] = React.useState(false);
+  const [openRight, setOpenRight] = React.useState(false);
+
+  const handleDrawerRight = () => {
+    setOpenRight(!openRight);
+  };
+
+  const handleDrawerleft = () => {
+    setOpenLeft(!openLeft);
+  };
+
+  const handleDrawerClose = () => {
+    setOpenLeft(false);
+  };
+
+  console.log('values on main app user:', user, 'locations:', locations,);
   return (
     <Router>
       <div>
-        <Nav />
         <Switch>
           {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
           <Redirect exact from="/" to="/home" />
@@ -67,8 +110,8 @@ function App() {
             path="/user"
           >
             <UserPage />
-            
-           
+
+
           </ProtectedRoute>
 
           <ProtectedRoute
@@ -87,8 +130,9 @@ function App() {
               // If the user is already logged in, 
               // redirect to the /user page
               // <Redirect to="/user" />
-              <MainMap />
 
+
+              <Redirect to="/home" />
               :
               // Otherwise, show the login page
               <LoginPage />
@@ -119,7 +163,7 @@ function App() {
               // <Redirect to="/user" />
 
               // <p>I am the locatiosn weeee</p>
-              <LocationsList/>
+              <LocationsList />
               :
               // Otherwise, show the Landing page
               <LandingPage />
@@ -131,31 +175,65 @@ function App() {
             exact
             path="/profile"
           >
-            <p>itsa my profile!</p>
-            <ProfileView />
+            <ProfileView/>
           </ProtectedRoute>
 
           <Route exact path="/location/:id">
             <p>location stuffs!</p>
-            <LocationView/>
+            <LocationView />
           </Route>
 
           <Route exact path="/search">
             <p>where are the theeeeeeengs!</p>
           </Route>
 
-          {/* <Route exact path="/">
+          <Route exact path="/map">
 
-          </Route> */}
-
-
+            <Box sx={{ display: 'flex' }}>
+              <Drawer
+                sx={{
+                  width: drawerWidth,
+                  flexShrink: 0,
+                  '& .MuiDrawer-paper': {
+                    width: drawerWidth,
+                    boxSizing: 'border-box',
+                  },
+                }}
+                variant="persistent"
+                anchor="left"
+                open={openLeft}
+              >
+                <button onClick={handleDrawerClose}>Hewoo</button>
+              </Drawer>
+              <Left open={openLeft}>
+                <button onClick={handleDrawerRight}>Adios!</button>
+                <button onClick={handleDrawerleft}>Hewoo</button>
+                <LocationsList />
+              </Left>
+              <Drawer
+                sx={{
+                  width: drawerWidth,
+                  flexShrink: 0,
+                  "& .MuiDrawer-paper": {
+                    width: drawerWidth
+                  }
+                }}
+                variant="persistent"
+                anchor="right"
+                open={openRight}
+              >
+                <p>Its me again!</p>
+                <button onClick={handleDrawerClose}>Adios!</button>
+              </Drawer>
+            </Box>
+          </Route>
           {/* If none of the other routes matched, we will show a 404. */}
           <Route>
             <h1>404</h1>
           </Route>
         </Switch>
-        <Footer />
       </div>
+        <Footer />
     </Router>
   );
 }

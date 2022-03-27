@@ -36,7 +36,7 @@ function Nav() {
               Profile
             </Link>
 
-            <LogOutButton className="navLink" />
+            <LogOutButton/>
           </>
         )}
 

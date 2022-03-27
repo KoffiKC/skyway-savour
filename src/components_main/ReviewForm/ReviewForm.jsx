@@ -37,7 +37,7 @@ export default function ReviewForm({details}) {
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
     // handle rating functionality
-    const [value, setValue] = React.useState(2);
+    const [value, setValue] = React.useState(0);
     const [hover, setHover] = React.useState(-1);
     const [review, setReview] = React.useState('');
     // this will allow users to POST the review to the database
@@ -61,8 +61,8 @@ export default function ReviewForm({details}) {
     console.log('this is in the review form, i have bo clue whe itll console lol', Details);
     return (
         <div>
-            <Button onClick={handleOpen}>Add Review</Button>
-            {/* <button onClick={handleOpen}>Add Review</button> */}
+            {/* <Button onClick={handleOpen}>Add Review</Button> */}
+            <button onClick={handleOpen}>Add Review</button>
             <Modal
                 open={open}
                 onClose={handleClose}

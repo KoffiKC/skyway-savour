@@ -5,7 +5,7 @@ import * as React from 'react';
 import { useDispatch } from 'react-redux';
 
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
+// import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 // star rating things
@@ -64,7 +64,7 @@ export default function EditReviewForm({Review}) {
     // console.log('the review', Review);
     return (
         <div>
-            <Button onClick={handleOpen}>Edit Review</Button>
+            <button onClick={handleOpen}>Edit Review</button>
             <Modal
                 open={open}
                 onClose={handleClose}

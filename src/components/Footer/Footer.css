@@ -1,10 +1,12 @@
-footer {
+.bottom-nav {
   /* margin-top: 80px;
   margin-bottom: 0px; */
-  padding: 20px;
+  /* padding: 20px; */
   text-align: center;
-  position: absolute;
+  position: sticky;
+  z-index: 100;
   bottom: 0;
   width: 100%;
    
 }
+

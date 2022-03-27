@@ -9,17 +9,18 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 
 import UserReviews from '../UserReviews/UserReviews';
+import LogOutButton from '../../components/LogOutButton/LogOutButton';
 
 function ProfileView() {
 
   const dispatch = useDispatch()
 
-  // useEffect(() => {
-  //   dispatch({
-  //     type: 'FETCH_USER',
-  //     payload: user.id
-  //   });
-  // }, [])
+  useEffect(() => {
+    dispatch({
+      type: 'FETCH_USER_R',
+      payload: user.id
+    });
+  }, [])
 
   const user = useSelector(store => store.user);
   const reviews = useSelector(store => store.userReviews);
@@ -30,6 +31,7 @@ function ProfileView() {
       <h1>Hi my name is {user.username}</h1>
       <h3>and I'm from the {user.cohort} cohort!</h3>
         <UserReviews reviews={reviews}/>
+      <LogOutButton/>
     </>
   )
 }

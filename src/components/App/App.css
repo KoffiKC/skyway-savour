@@ -3,12 +3,17 @@ body,
 #react-root {
   height: 100%;
 }
-
+*/
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #85f7ff;
   margin: 0px;
 }
 
+/* input {
+  background-color: rgb(255, 210, 152);
+} */
+/*
 img {
   display: inline-block;
   max-width: 100%;
@@ -110,3 +115,32 @@ input {
   margin: 5px;
   margin-bottom: 10px;
 } */
+
+.location-list {
+  width: 100%;
+  display:block;
+  overflow:hidden;
+}
+.carousel {
+  display: block;
+  width: 100%;
+  height: 320px;
+  overflow-x: scroll;
+  padding: 10px;
+  margin: 0;
+  white-space: nowrap; 
+  border-top: 2px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+.location-item{
+  display: inline-block;
+ 
+  margin: 0 10px;
+  
+  background: rgba(0, 0, 0, 0.05) no-repeat center center;
+  background-size: cover;
+  position:relative;
+  border-radius: 20px;
+  box-shadow: 0 0 10px #dfdfdf;
+}
