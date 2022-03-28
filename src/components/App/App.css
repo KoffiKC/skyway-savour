@@ -22,6 +22,18 @@ h1, h2, h3, h4, p {
   width: 100%;
 }
 
+p.review  {
+margin-left: 100px;
+}
+
+.mini-logo {
+  width: 100%;
+}
+
+.main-logo {
+  width: 393px;
+  margin-left: -20px;
+}
 /* input {
   background-color: rgb(255, 210, 152);
 } */
@@ -136,6 +148,14 @@ input {
   display:block;
   overflow:hidden;
 }
+
+
+/* .location-list h1 h3 {
+  width: 100%;
+  display:block;
+  overflow:hidden;
+
+} */
 .carousel {
   display: block;
   width: 100%;

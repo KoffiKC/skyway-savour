@@ -6,9 +6,10 @@ import './SignUpPage.css';
 // CUSTOM COMPONENTS
 import RegisterForm from '../RegisterForm/RegisterForm';
 import LoginForm from '../LoginForm/LoginForm';
+import taco from './Untitled45_20220328072317.png'
 
 function LandingPage() {
-  const [heading, setHeading] = useState('Welcome');
+  const [heading, setHeading] = useState('Welcome to');
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -26,13 +27,11 @@ function LandingPage() {
     <center>
     <div className="container">
       <h2>{heading}</h2>
-      <img src='../../../public/Untitled45_20220328072317.png' alt='SkywaySaver'/>
+      <img className='main-logo' src={taco} alt='SkywaySaver'/>
 
       <div className="grid">
         <div className="grid-col grid-col_8">
-          <p>
-           SKYWAY SAVOR, the most comprehensive store of food locations within the skyway that Prime has ever seen!
-          </p>
+          
         </div>
         <div className="grid-col grid-col_4">
           <LoginForm />

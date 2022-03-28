@@ -9,7 +9,30 @@ function AboutPage() {
   return (
     <div className="container">
       <div>
-        <p>This about page is for anyone to read!</p>
+        <h1>Technologies used</h1>
+        <ul>
+          <li>React</li>
+          <li>Javascript</li>
+          <li>Google maps API</li>
+          <li>google-map-react</li>
+          <li>Express</li>
+          <li>Node.js</li>
+          <li>PostgresSQL</li>
+          <li>Material UI</li>
+         
+        </ul>
+        <h1>Challenges Faced</h1>
+          <ul>
+            <li> Intigrateing Google Maps API with react</li>
+
+          </ul>
+          <h1>Future addittions</h1>
+          <ul>
+            <li>Admin View</li>
+            <li>more locations</li>
+            <li>Advanced Search page</li>
+            
+          </ul>
       </div>
     </div>
   );

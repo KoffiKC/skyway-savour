@@ -28,7 +28,7 @@ function Footer() {
   return (
     <>
       <div className='bottom-nav'>
-      <Box sx={{ '& > :not(style)': { m: 1.4 } }}>
+      <Box sx={{ '& > :not(style)': { m: 1.2 } }}>
         <Fab color="secondary" variant="extended" aria-label="Search"
         onClick={() => handleClick('search')}>
           <ManageSearchIcon />

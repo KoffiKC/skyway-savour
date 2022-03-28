@@ -12,14 +12,16 @@ import Modal from '@mui/material/Modal';
 import Rating from '@mui/material/Rating';
 // import Box from '@mui/material/Box';
 import StarIcon from '@mui/icons-material/Star';
+import Button from '@mui/material/Button';
+
 
 const labels = {
-    0: 'Useless',
-    1: 'Useless+',
-    2: 'Poor+',
-    3: 'Ok+',
-    4: 'Good+',
-    5: 'Excellent+',
+    0: '',
+    1: '',
+    2: '',
+    3: '',
+    4: '',
+    5: '',
 };
 
 const style = {
@@ -64,7 +66,7 @@ export default function EditReviewForm({Review}) {
     // console.log('the review', Review);
     return (
         <div>
-            <button onClick={handleOpen}>Edit Review</button>
+            <Button color='secondary' onClick={handleOpen}>Edit Review</Button>
             <Modal
                 open={open}
                 onClose={handleClose}

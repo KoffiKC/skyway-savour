@@ -9,7 +9,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Rating from '@mui/material/Rating';
 import RateReviewIcon from '@mui/icons-material/RateReview';
-
+import MapIcon from '@mui/icons-material/Map';
 
 import UserReviews from '../UserReviews/UserReviews';
 import LocationReviews from '../LocationReviews/LocationReviews';
@@ -93,33 +93,36 @@ function LocationView() {
 
   return (
     <>
-      {map ? <img src={details?.image_url} alt="" width={375} /> :
-        <LocationMap details={details} user={userLocal} />
-      }
+       <div className='location-list'>
       {/* <img src={details?.image_url} alt="" width={375} />
       <LocationMap/> */}
-      <h3>{details?.price_status}</h3>
       {/* <button onClick={handleClick}>Add Review</button> */}
       <Card sx={{ maxWidth: 389, maxHeight: 851, bgcolor: '#ffcc66' }}>
         <h1>{details?.name}</h1>
-        <CardContent>
+        <CardContent sx={{ marginRight: '100px'}}>
           {map ? <img src={details?.image_url} alt="" width={375} /> :
             <LocationMap details={details} user={userLocal} />
           }
         </CardContent>
-        <CardContent sx={{ justifyContent: 'center' }} >
-          <Button size="large" color="secondary" endIcon={<RateReviewIcon />}>ADD review</Button>
-          <Rating name="read-only" value={Number(details?.average)} sx={{ fontSize: 30 }} readOnly />
+        <CardContent sx={{ display: 'flex', justifyContent: 'center' }} >
+          
+          <Button size="large"  onClick={() => toggleMap(map)} ><MapIcon/></Button>
+          <Rating name="read-only" value={Number(details?.average)} sx={{ fontSize: 30, p: '0px'  }} readOnly />
+          <h3>{details?.price_status}</h3>
         </CardContent>
-        <CardContent sx={{ display: 'flex', alignItems: 'center' }} >
           <p>{details?.description}</p>
+        <CardContent  >
 
-          <button onClick={() => toggleMap(map)}>Show map</button>
+          {/* <button onClick={() => toggleMap(map)}>Show map</button> */}
+          <div>
           <ReviewForm details={location_details} />
+          </div>
+          <div className='carousel' >
           <LocationReviews />
-
+          </div>
         </CardContent>
       </Card>
+      </div>
     </>
   )
 }

@@ -49,11 +49,10 @@ const UserPin = ({text}) => (
     return (
         <>
             <div className="map">
-                <h2 className="map-h2">Skyway Savor!</h2>
 
                 <div className="google-map">
                     <GoogleMapReact
-                        bootstrapURLKeys={{ key: process.env.MAP_API }}
+                        bootstrapURLKeys={{ key: 'AIzaSyAq_lGv4XjzCddzO_oKkBx5j2drPXR8U5A' }}
                         defaultCenter={
                             {
                                 address: '',
@@ -61,6 +60,7 @@ const UserPin = ({text}) => (
                                 lng: details.lng,
                             }}
                         defaultZoom={15}
+                        options={{ gestureHandling: 'none', disableDefaultUI: true}}
                     >
                         {/* <img src="./Ihavenocluewhatimdoing.png" alt='I have no idea what im doing'></img> */}
                         {/* {locations.map(marker => (

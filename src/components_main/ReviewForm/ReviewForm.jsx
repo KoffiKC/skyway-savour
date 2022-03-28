@@ -5,18 +5,20 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
+import RateReviewIcon from '@mui/icons-material/RateReview';
+
 // star rating things
 import Rating from '@mui/material/Rating';
 // import Box from '@mui/material/Box';
 import StarIcon from '@mui/icons-material/Star';
 
 const labels = {
-    0: 'Useless',
-    1: 'Useless+',
-    2: 'Poor+',
-    3: 'Ok+',
-    4: 'Good+',
-    5: 'Excellent+',
+    0: '',
+    1: '',
+    2: '',
+    3: '',
+    4: '',
+    5: '',
 };
 
 const style = {
@@ -62,7 +64,8 @@ export default function ReviewForm({details}) {
     return (
         <div>
             {/* <Button onClick={handleOpen}>Add Review</Button> */}
-            <button onClick={handleOpen}>Add Review</button>
+            <Button onClick={handleOpen} size="large" color="secondary" endIcon={<RateReviewIcon />}>ADD review</Button>
+            {/* <button onClick={handleOpen}>Add Review</button> */}
             <Modal
                 open={open}
                 onClose={handleClose}

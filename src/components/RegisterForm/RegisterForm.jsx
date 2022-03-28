@@ -49,7 +49,7 @@ function RegisterForm() {
   
   const demoFill = () => {
     console.log('yo');
-    setUsername('KoffiKC')
+    setUsername('KoffiK')
     setPassword('1234')
     setCohort('Adams')
   }

@@ -7,9 +7,11 @@ import {
 } from 'react-router-dom';
 
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 import Nav from '../Nav/Nav';
 import Footer from '../Footer/Footer';
+import taco from './Untitled45_20220328073331.png'
 
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
@@ -57,6 +59,7 @@ import './App.css';
 
 function App() {
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const user = useSelector(store => store.user);
   const locations = useSelector(store => store.locations);
@@ -86,7 +89,7 @@ function App() {
   console.log('values on main app user:', user, 'locations:', locations,);
   return (
     <Router>
-      {user.id ? <img src='../../../public/Untitled45_20220328073331.png' alt='logo'/>  : <></>}
+      {user.id ? <img className='mini-logo' onClick={() => history.push('/about')} src={taco} alt='logo'/>  : <></>}
       
       <div>
         <Switch>

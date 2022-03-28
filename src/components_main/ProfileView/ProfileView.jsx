@@ -27,12 +27,14 @@ function ProfileView() {
 
   console.log('this is real, this si me!!', user, 'ALSO REVIEW WAU', reviews);
   return (
-    <>
-      <h1>Hi my name is {user.username}</h1>
-      <h3>and I'm from the {user.cohort} cohort!</h3>
-        <UserReviews reviews={reviews}/>
+    <div className='location-list'>
+      <h1>Hi There, {user.username}</h1>
+      <div>
+      <h3>{user.cohort}</h3>
       <LogOutButton/>
-    </>
+      </div>
+        <UserReviews reviews={reviews}/>
+    </div >
   )
 }
 
