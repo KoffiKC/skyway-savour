@@ -29,8 +29,10 @@ router.get('/details/:id', (req, res) => {
   // GET route code here
   // NO BLINGS -- edna
   const sqlText = `
-  SELECT * FROM "locations"
-  WHERE "locations".id = ${req.params.id};
+  SELECT "locations".*, AVG("reviews".rating) as average FROM "locations"
+  JOIN "reviews" ON "reviews".location_id = "locations".id
+  WHERE "locations".id = ${req.params.id}
+  Group BY "locations".id;
   `
   /* SELECT locations.*, reviews.* FROM "locations"
   JOIN "reviews" ON "reviews".location_id = "locations".id

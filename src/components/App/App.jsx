@@ -86,6 +86,8 @@ function App() {
   console.log('values on main app user:', user, 'locations:', locations,);
   return (
     <Router>
+      {user.id ? <img src='../../../public/Untitled45_20220328073331.png' alt='logo'/>  : <></>}
+      
       <div>
         <Switch>
           {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
@@ -179,7 +181,6 @@ function App() {
           </ProtectedRoute>
 
           <Route exact path="/location/:id">
-            <p>location stuffs!</p>
             <LocationView />
           </Route>
 

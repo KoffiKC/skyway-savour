@@ -11,7 +11,7 @@ function SearchBar() {
 
     const [term, setTerm] = useState('')
 
-    const handleClick =(term)=> {
+    const handleClick = (term) => {
         console.log('woohooo!', term);
         dispatch({
             type: 'RUN_SEARCH',
@@ -22,26 +22,35 @@ function SearchBar() {
 
 
     return (
-        <Box
-            component="form"
-            sx={{
-                '& .MuiTextField-root': { m: 0, width: '45ch' },
-            }}
-            noValidate
-            autoComplete="off"
-        >
-            <div>
+        <div >
+            <Box
+                component="form"
+                sx={{
+                    '& .MuiTextField-root': { 
+                        m: 0, 
+                        width: '44.5ch', 
+                        bgcolor: 'lightblue',
+                        border: '2px solid blue',
+                        borderRadius: '30px',
+                    },
+                }}
+                noValidate
+                autoComplete="off"
+            >
+                <div>
 
-                <TextField
-                    id="filled-search"
-                    label="Search field"
-                    type="search"
-                    variant="filled"
-                    onChange={(e) => handleClick(e.target.value)}
-                />
-                {/* <button onClick={handleClick}>Search</button> */}
-            </div>
-        </Box>
+                    <TextField
+                        id="filled-search"
+                        label="Search field"
+                        type="search"
+                        variant="filled"
+                        onChange={(e) => handleClick(e.target.value)}
+                        // sx={{borderRadius: '30px'}}
+                    />
+                    {/* <button onClick={handleClick}>Search</button> */}
+                </div>
+            </Box>
+        </div>
     );
 }
 

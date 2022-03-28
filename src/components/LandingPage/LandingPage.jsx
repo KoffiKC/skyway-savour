@@ -26,6 +26,7 @@ function LandingPage() {
     <center>
     <div className="container">
       <h2>{heading}</h2>
+      <img src='../../../public/Untitled45_20220328072317.png' alt='SkywaySaver'/>
 
       <div className="grid">
         <div className="grid-col grid-col_8">

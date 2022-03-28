@@ -36,6 +36,7 @@ function RegisterForm() {
   const registerUser = (event) => {
     event.preventDefault();
 
+    
     dispatch({
       type: 'REGISTER',
       payload: {
@@ -45,7 +46,13 @@ function RegisterForm() {
       },
     });
   }; // end registerUser
-
+  
+  const demoFill = () => {
+    console.log('yo');
+    setUsername('KoffiKC')
+    setPassword('1234')
+    setCohort('Adams')
+  }
   return (
     <center>
       <div>
@@ -59,7 +66,7 @@ function RegisterForm() {
 
         >
           <Box sx={style}>
-            <h2>Register User</h2>
+            <h2 onClick={demoFill}>Register User</h2>
             <div>
               <TextField
                 id="outlined-multiline-flexible"

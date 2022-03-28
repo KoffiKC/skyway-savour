@@ -2,6 +2,13 @@ import React, { useEffect } from 'react';
 import { useState } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
+//MUI THINGS
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Button from '@mui/material/Button';
+import Rating from '@mui/material/Rating';
+import RateReviewIcon from '@mui/icons-material/RateReview';
 
 
 import UserReviews from '../UserReviews/UserReviews';
@@ -25,11 +32,11 @@ function LocationView() {
     dispatch({
       type: 'FETCH_LOCATION_R',
       payload: id
-  })
-  // getLocation()
+    })
+    // getLocation()
   }, [])
 
-  const toggleMap =()=>{
+  const toggleMap = () => {
     console.log('boops');
     setMap(!map)
     getLocation()
@@ -49,25 +56,25 @@ function LocationView() {
   }
 
   const getLocation = () => {
-      console.log('is anything happening?');
+    console.log('is anything happening?');
 
-      setStatus('Locating...');
-      navigator.geolocation.getCurrentPosition((position) => {
-        setStatus('you have been geolocated');
-        setLat(position.coords.latitude);
-        setLng(position.coords.longitude);
-      }, () => {
-        setStatus('Unable to retrieve your location');
-      });
-    }
-  
-    let userLocal = {
-      status: status,
-      lat: lat,
-      lng: lng,
-      name: "ITS MEEEEE!"
-    }
-  
+    setStatus('Locating...');
+    navigator.geolocation.getCurrentPosition((position) => {
+      setStatus('you have been geolocated');
+      setLat(position.coords.latitude);
+      setLng(position.coords.longitude);
+    }, () => {
+      setStatus('Unable to retrieve your location');
+    });
+  }
+
+  let userLocal = {
+    status: status,
+    lat: lat,
+    lng: lng,
+    name: "ITS MEEEEE!"
+  }
+
 
 
   // const reviews = useSelector(store => store.locationReviews);
@@ -75,29 +82,44 @@ function LocationView() {
 
   const handleClick = (map) => {
     console.log('maur clickiibhss :)', map);
-   
+
   }
 
 
   const details = location_details[0]
 
   // console.log('location details and location id', lat, lng);
-  console.log('The LAT and the LN are:', lat, lng,status);
+  console.log('The LAT and the LN are:', lat, lng, status);
 
   return (
     <>
-      <h1>{details?.name}</h1>
       {map ? <img src={details?.image_url} alt="" width={375} /> :
         <LocationMap details={details} user={userLocal} />
       }
       {/* <img src={details?.image_url} alt="" width={375} />
       <LocationMap/> */}
-      <p>{details?.description}</p>
       <h3>{details?.price_status}</h3>
       {/* <button onClick={handleClick}>Add Review</button> */}
-      <button onClick={() => toggleMap(map)}>Show map</button>
-      <ReviewForm details={location_details} />
-      <LocationReviews   />
+      <Card sx={{ maxWidth: 389, maxHeight: 851, bgcolor: '#ffcc66' }}>
+        <h1>{details?.name}</h1>
+        <CardContent>
+          {map ? <img src={details?.image_url} alt="" width={375} /> :
+            <LocationMap details={details} user={userLocal} />
+          }
+        </CardContent>
+        <CardContent sx={{ justifyContent: 'center' }} >
+          <Button size="large" color="secondary" endIcon={<RateReviewIcon />}>ADD review</Button>
+          <Rating name="read-only" value={Number(details?.average)} sx={{ fontSize: 30 }} readOnly />
+        </CardContent>
+        <CardContent sx={{ display: 'flex', alignItems: 'center' }} >
+          <p>{details?.description}</p>
+
+          <button onClick={() => toggleMap(map)}>Show map</button>
+          <ReviewForm details={location_details} />
+          <LocationReviews />
+
+        </CardContent>
+      </Card>
     </>
   )
 }
