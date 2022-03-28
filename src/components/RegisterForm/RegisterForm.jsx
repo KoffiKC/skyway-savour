@@ -19,6 +19,7 @@ const style = {
   borderRadius: '30px',
   boxShadow: 23,
   p: 4,
+  paddingTop: 1,
 };
 
 function RegisterForm() {
@@ -46,7 +47,7 @@ function RegisterForm() {
   }; // end registerUser
 
   return (
-    <>
+    <center>
       <div>
       <h4>New to Skyway Savor?</h4>
         <Button variant="outlined" onClick={handleOpen} sx={{marginTop: '-10px'}}>Join Here</Button>
@@ -89,13 +90,17 @@ function RegisterForm() {
                 value={cohort}
                 onChange={(event) => setCohort(event.target.value)}
               />
-              <Button variant="outlined" color="secondary">Outlined</Button>
             </div>
+              <Button
+              variant="contained"
+              color="secondary"
+              onClick={registerUser}
+              sx={{marginLeft: '50px', marginTop: '5px'}}>Sign up</Button>
           </Box>
         </Modal>
       </div>
       
-    </>
+    </center>
   );
 }
 
