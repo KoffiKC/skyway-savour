@@ -23,6 +23,7 @@ function LandingPage() {
   };
 
   return (
+    <center>
     <div className="container">
       <h2>{heading}</h2>
 
@@ -35,15 +36,15 @@ function LandingPage() {
         <div className="grid-col grid-col_4">
           <LoginForm />
 
-          <center>
-            <h4>New to Skyway Savor?</h4>
-            <button className="btn btn_sizeSm" onClick={onLogin}>
+            
+            <RegisterForm/>
+            {/* <button className="btn btn_sizeSm" onClick={onLogin}>
               Join here
-            </button>
-          </center>
+            </button> */}
         </div>
       </div>
     </div>
+          </center>
   );
 }
 

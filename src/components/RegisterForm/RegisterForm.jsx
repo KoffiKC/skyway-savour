@@ -1,5 +1,25 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+// MUI components
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+import Modal from '@mui/material/Modal';
+
+// MUI Styles
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 200,
+  height: 250,
+  bgcolor: 'lightblue',
+  border: '4px solid blue',
+  borderRadius: '30px',
+  boxShadow: 23,
+  p: 4,
+};
 
 function RegisterForm() {
   const [username, setUsername] = useState('');
@@ -7,6 +27,10 @@ function RegisterForm() {
   const [cohort, setCohort] = useState('');
   const errors = useSelector((store) => store.errors);
   const dispatch = useDispatch();
+  //handels open/close of modal form
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   const registerUser = (event) => {
     event.preventDefault();
@@ -22,53 +46,56 @@ function RegisterForm() {
   }; // end registerUser
 
   return (
-    <form className="formPanel" onSubmit={registerUser}>
-      <h2>Register User</h2>
-      {errors.registrationMessage && (
-        <h3 className="alert" role="alert">
-          {errors.registrationMessage}
-        </h3>
-      )}
+    <>
       <div>
-        <label htmlFor="username">
-          Username:
-          <input
-            type="text"
-            name="username"
-            value={username}
-            required
-            onChange={(event) => setUsername(event.target.value)}
-          />
-        </label>
+      <h4>New to Skyway Savor?</h4>
+        <Button variant="outlined" onClick={handleOpen} sx={{marginTop: '-10px'}}>Join Here</Button>
+        <Modal
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+
+        >
+          <Box sx={style}>
+            <h2>Register User</h2>
+            <div>
+              <TextField
+                id="outlined-multiline-flexible"
+                label="Username"
+                multiline
+                maxRows={4}
+                color="secondary"
+                value={username}
+                required
+                onChange={(event) => setUsername(event.target.value)}
+              />
+              <TextField
+                id="outlined-password-input"
+                label="Password"
+                type="password"
+                autoComplete="current-password"
+                color="secondary"
+                value={password}
+                required
+                onChange={(event) => setPassword(event.target.value)}
+              />
+              <TextField
+                id="outlined-multiline-flexible"
+                label="Cohort"
+                multiline
+                maxRows={4}
+                color="secondary"
+                value={cohort}
+                onChange={(event) => setCohort(event.target.value)}
+              />
+              <Button variant="outlined" color="secondary">Outlined</Button>
+            </div>
+          </Box>
+        </Modal>
       </div>
-      <div>
-        <label htmlFor="password">
-          Password:
-          <input
-            type="password"
-            name="password"
-            value={password}
-            required
-            onChange={(event) => setPassword(event.target.value)}
-          />
-        </label>
-      </div>
-      <div>
-        <label htmlFor="cohort">
-          Cohort:
-          <input
-            type="text"
-            name="cohort"
-            value={cohort}
-        
-            onChange={(event) => setCohort(event.target.value)}
-          />
-        </label>
-      </div>
-      <div>
-        <input className="btn" type="submit" name="submit" value="Register" />
-      </div>
-    </form>
+      
+    </>
   );
 }
 
