@@ -28,13 +28,14 @@ import ProfileView from '../../components_main/ProfileView/ProfileView';
 import LocationView from '../../components_main/LocationView/LocationView';
 import LocationsList from '../../components_main/LocationsList/LocationsList';
 
-//Drawer components
+//Drawer components UNUSED
 import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 
 const drawerWidth = 393;
 
+// UNUSED
 const Left = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
   ({ theme, open }) => ({
     flexGrow: 1,
@@ -89,8 +90,8 @@ function App() {
   console.log('values on main app user:', user, 'locations:', locations,);
   return (
     <Router>
-      {user.id ? <img className='mini-logo' onClick={() => history.push('/about')} src={taco} alt='logo'/>  : <></>}
-      
+      {user.id ? <img className='mini-logo' onClick={() => history.push('/about')} src={taco} alt='logo' /> : <></>}
+
       <div>
         <Switch>
           {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
@@ -133,10 +134,7 @@ function App() {
           >
             {user.id ?
               // If the user is already logged in, 
-              // redirect to the /user page
-              // <Redirect to="/user" />
-
-
+              // redirect to the /home page
               <Redirect to="/home" />
               :
               // Otherwise, show the login page
@@ -163,11 +161,8 @@ function App() {
             path="/home"
           >
             {user.id ?
-              // If the user is already logged in, 
-              // redirect them to the /user page
-              // <Redirect to="/user" />
-
-              // <p>I am the locatiosn weeee</p>
+              // depending on if the user is logged in
+              // this will render either the main view or the sign up page
               <LocationsList />
               :
               // Otherwise, show the Landing page
@@ -180,7 +175,7 @@ function App() {
             exact
             path="/profile"
           >
-            <ProfileView/>
+            <ProfileView />
           </ProtectedRoute>
 
           <Route exact path="/location/:id">
@@ -188,57 +183,16 @@ function App() {
           </Route>
 
           <Route exact path="/search">
-            <p>where are the theeeeeeengs!</p>
+            {/* Advanced Search page TBA */}
           </Route>
-
-          {/* <Route exact path="/map">
-
-            <Box sx={{ display: 'flex' }}>
-              <Drawer
-                sx={{
-                  width: drawerWidth,
-                  flexShrink: 0,
-                  '& .MuiDrawer-paper': {
-                    width: drawerWidth,
-                    boxSizing: 'border-box',
-                  },
-                }}
-                variant="persistent"
-                anchor="left"
-                open={openLeft}
-              >
-                <button onClick={handleDrawerClose}>Hewoo</button>
-              </Drawer>
-              <Left open={openLeft}>
-                <button onClick={handleDrawerRight}>Adios!</button>
-                <button onClick={handleDrawerleft}>Hewoo</button>
-                <LocationsList />
-              </Left>
-              <Drawer
-                sx={{
-                  width: drawerWidth,
-                  flexShrink: 0,
-                  "& .MuiDrawer-paper": {
-                    width: drawerWidth
-                  }
-                }}
-                variant="persistent"
-                anchor="right"
-                open={openRight}
-              >
-                <p>Its me again!</p>
-                <button onClick={handleDrawerClose}>Adios!</button>
-              </Drawer>
-            </Box>
-          </Route> */}
           {/* If none of the other routes matched, we will show a 404. */}
           <Route>
             <h1>404</h1>
           </Route>
         </Switch>
       </div>
-      {user.id ?  <Footer />  : <></>}
-        
+      {user.id ? <Footer /> : <></>}
+
     </Router>
   );
 }

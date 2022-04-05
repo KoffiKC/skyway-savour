@@ -12,63 +12,40 @@ import EmojiEmotionsIcon from '@mui/icons-material/EmojiEmotions';
 import ManageSearchIcon from '@mui/icons-material/ManageSearch';
 import MapIcon from '@mui/icons-material/Map';
 
-// This is one of our simplest components
-// It doesn't have local state, so it can be a function component.
-// It doesn't dispatch any redux actions or display any part of redux state
-// or even care what the redux state is, so it doesn't need 'connect()'
-
 function Footer() {
   const [value, setValue] = React.useState(0);
   const history = useHistory();
-
+  
+  // function to handle where users go when they click
   const handleClick = (page) => {
-    // console.log(page, 'wow hats so cool');
+    //each button sends a unique string which is used to determine what view they go to
     history.push(`/${page}`)
   }
+
+  // Component for app navigation
   return (
     <>
       <div className='bottom-nav'>
       <Box sx={{ '& > :not(style)': { m: 1.2 } }}>
+        {/* sends users the the Advanced search page TBA page */}
         <Fab color="secondary" variant="extended" aria-label="Search"
         onClick={() => handleClick('search')}>
           <ManageSearchIcon />
           search
         </Fab>
+        {/* sends users the the home page */}
         <Fab color="secondary" variant="extended" aria-label="Home"
         onClick={() => handleClick('home')}>
           <MapIcon />
           Home
         </Fab>
-        {/* <Fab variant="extended">
-        <NavigationIcon sx={{ mr: 1 }} />
-        Navigate
-      </Fab> */}
+        {/* sends users the the profile page */}
         <Fab color="secondary" variant="extended" aria-label="Profile"
         onClick={() => handleClick('profile')}>
           <EmojiEmotionsIcon />
           Profile
         </Fab>
       </Box>
-      {/* <Box sx={{ width: 393 }}>
-        <BottomNavigation
-          showLabels
-          value={value}
-          onChange={(event, newValue) => {
-            setValue(newValue);
-          }}
-        > */}
-      {/* <Link to="/user"> */}
-      {/* <BottomNavigationAction label="Advanced Search" icon={<ManageSearchIcon />} /> */}
-      {/*  </Link>
-          <Link to="/home"> */}
-      {/* <BottomNavigationAction label="Home" icon={<MapIcon />} /> */}
-      {/*  </Link>
-          <Link to="/profile"> */}
-      {/* <BottomNavigationAction label="Profile" icon={<EmojiEmotionsIcon />} /> */}
-      {/*< /Link> */}
-      {/* </BottomNavigation>
-      </Box> */}
-      {/* <footer>&copy; 2022 || SKYWAY SAVOR || Koffi Kittleson</footer>; */}
     </div>
     </>
   )

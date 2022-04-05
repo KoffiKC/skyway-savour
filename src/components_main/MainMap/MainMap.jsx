@@ -92,7 +92,7 @@ export default function MainMap() {
 
                 <div className="google-map">
                     <GoogleMapReact
-                        bootstrapURLKeys={{ key: process.env.MAP_API }}
+                        bootstrapURLKeys={{ key: AIzaSyAq_lGv4XjzCddzO_oKkBx5j2drPXR8U5A }}
                         defaultCenter={
                             {
                                 address: '301 S 4th Ave #577, Minneapolis, MN 55415',
