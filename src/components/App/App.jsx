@@ -11,7 +11,7 @@ import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 import Nav from '../Nav/Nav';
 import Footer from '../Footer/Footer';
-import taco from './Untitled45_20220328073331.png'
+import taco from './Untitled46_20220329154629.png'
 
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
