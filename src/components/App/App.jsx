@@ -33,8 +33,8 @@ function App() {
   const history = useHistory();
   
   const user = useSelector(store => store.user);
-  const locations = useSelector(store => store.locations);
-  const details = useSelector(store => store.details);
+  // const locations = useSelector(store => store.locations);
+  // const details = useSelector(store => store.details);
   
   useEffect(() => {
     dispatch({ type: 'FETCH_USER' });
@@ -60,54 +60,6 @@ function App() {
             <AboutPage />
           </Route>
 
-          {/* For protected routes, the view could show one of several things on the same route.
-            Visiting localhost:3000/user will show the UserPage if the user is logged in.
-            If the user is not logged in, the ProtectedRoute will show the LoginPage (component).
-          Even though it seems like they are different pages, the user is always on localhost:3000/user */}
-          <ProtectedRoute
-            // logged in shows UserPage else shows LoginPage
-            exact
-            path="/user"
-            >
-            <UserPage />
-          </ProtectedRoute>
-
-          <ProtectedRoute
-            // logged in shows InfoPage else shows LoginPage
-            exact
-            path="/info"
-            >
-            <InfoPage />
-          </ProtectedRoute>
-
-          <Route
-            exact
-            path="/login"
-            >
-            {user.id ?
-              // If the user is already logged in, 
-              // redirect to the /home page
-              <Redirect to="/home" />
-              :
-              // Otherwise, show the login page
-              <LoginPage />
-            }
-          </Route>
-
-          <Route
-            exact
-            path="/registration"
-            >
-            {user.id ?
-              // If the user is already logged in, 
-              // redirect them to the /user page
-              <Redirect to="/user" />
-              :
-              // Otherwise, show the registration page
-              <RegisterPage />
-            }
-          </Route>
-
           <Route
             exact
             path="/home"
@@ -122,6 +74,10 @@ function App() {
             }
           </Route>
 
+            {/* For protected routes, the view could show one of several things on the same route.
+              Visiting localhost:3000/user will show the UserPage if the user is logged in.
+              If the user is not logged in, the ProtectedRoute will show the LoginPage (component).
+              Even though it seems like they are different pages, the user is always on localhost:3000/user */}
           <ProtectedRoute
             // logged in shows InfoPage else shows LoginPage
             exact
