@@ -13,11 +13,8 @@ import Footer from '../Footer/Footer';
 import logo from './Untitled46_20220329154629.png'
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import AboutPage from '../AboutPage/AboutPage';
-import UserPage from '../UserPage/UserPage';
-import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
-import LoginPage from '../LoginPage/LoginPage';
-import RegisterPage from '../RegisterPage/RegisterPage';
+
 
 // main_components
 import ProfileView from '../../components_main/ProfileView/ProfileView';
