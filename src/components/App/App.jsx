@@ -37,8 +37,7 @@ function App() {
     dispatch({ type: 'FETCH_USER' });
   }, [dispatch]);
   
-  
-  // console.log('values on main app user:', user, 'locations:', locations,);
+
   return (
     <Router>
       {user.id ? <img className='mini-logo' onClick={() => history.push('/about')} src={logo} alt='logo' /> : <></>}

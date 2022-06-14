@@ -1,13 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 import './Footer.css';
 import Box from '@mui/material/Box';
 import Fab from '@mui/material/Fab';
 
-import BottomNavigation from '@mui/material/BottomNavigation';
-import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 import EmojiEmotionsIcon from '@mui/icons-material/EmojiEmotions';
 import ManageSearchIcon from '@mui/icons-material/ManageSearch';
 import MapIcon from '@mui/icons-material/Map';
@@ -21,7 +18,7 @@ function Footer() {
     //each button sends a unique string which is used to determine what view they go to
     history.push(`/${page}`)
   }
-
+  
   // Component for app navigation
   return (
     <>
@@ -52,3 +49,8 @@ function Footer() {
 }
 
 export default Footer;
+
+// // Unused components
+// import BottomNavigation from '@mui/material/BottomNavigation';
+// import BottomNavigationAction from '@mui/material/BottomNavigationAction';
+// import { Link } from 'react-router-dom';
