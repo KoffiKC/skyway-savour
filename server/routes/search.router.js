@@ -3,7 +3,7 @@ const pool = require('../modules/pool');
 const router = express.Router();
 
 // gets locations based on user input
-router.get('/:search_term', (req, res) => {
+router.get('/:search_term', rejectUnauthenticated, (req, res) => {
   // GET route code here
 
   // case insensitive SQL thing??
@@ -24,7 +24,7 @@ router.get('/:search_term', (req, res) => {
 
 
 // this get is to get locations oredered in a specific manner
-router.get('/sort/:id', (req, res) => {
+router.get('/sort/:id', rejectUnauthenticated, (req, res) => {
 
   // GET route code here
   const sqlText = `

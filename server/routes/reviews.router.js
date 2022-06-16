@@ -3,7 +3,7 @@ const pool = require('../modules/pool');
 const router = express.Router();
 
 // REJECT UNAUTh USER DOOODE
-router.get('/location/:location_id',  (req, res) => {
+router.get('/location/:location_id', rejectUnauthenticated,  (req, res) => {
   // GET route code here
   // console.log(req.params.location_id);
   
@@ -23,7 +23,7 @@ router.get('/location/:location_id',  (req, res) => {
 
 
 // this will allow the user to add a review on a specific location page
-router.post('/location/:location_id', (req, res) => {
+router.post('/location/:location_id', rejectUnauthenticated, (req, res) => {
  
   const sqlText = `
   INSERT INTO "reviews" ("rating", "review", "user_id", "location_id")
@@ -59,7 +59,7 @@ router.put('/user/:review_id', (req, res) => {
     })
 });
 
-router.delete('/user/:review_id', (req, res) => {
+router.delete('/user/:review_id', rejectUnauthenticated, (req, res) => {
  
   const sqlText = `
   DELETE FROM "reviews" 

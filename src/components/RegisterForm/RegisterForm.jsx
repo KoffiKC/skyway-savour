@@ -28,6 +28,8 @@ function RegisterForm() {
   const [cohort, setCohort] = useState('');
   const errors = useSelector((store) => store.errors);
   const dispatch = useDispatch();
+
+  
   //handels open/close of modal form
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
@@ -36,7 +38,6 @@ function RegisterForm() {
   const registerUser = (event) => {
     event.preventDefault();
 
-    
     dispatch({
       type: 'REGISTER',
       payload: {
@@ -47,12 +48,12 @@ function RegisterForm() {
     });
   }; // end registerUser
   
-  const demoFill = () => {
-    console.log('yo');
-    setUsername('KoffiK')
-    setPassword('1234')
-    setCohort('Adams')
-  }
+  // const demoFill = () => {
+  //   console.log('yo');
+  //   setUsername('KoffiK')
+  //   setPassword('1234')
+  //   setCohort('Adams')
+  // }
   return (
     <center>
       <div>

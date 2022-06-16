@@ -51,7 +51,7 @@ router.post('/logout', (req, res) => {
 // USER PROFILE ROUTES
 
 // this will select all the users reviews on the profile page
-router.get('/reviews/:user_id', (req, res) => {
+router.get('/reviews/:user_id', rejectUnauthenticated, (req, res) => {
   // GET route code here
   
   const sqlText = `
