@@ -29,7 +29,7 @@ function RegisterForm() {
   const errors = useSelector((store) => store.errors);
   const dispatch = useDispatch();
 
-  
+
   //handels open/close of modal form
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
@@ -48,12 +48,6 @@ function RegisterForm() {
     });
   }; // end registerUser
   
-  // const demoFill = () => {
-  //   console.log('yo');
-  //   setUsername('KoffiK')
-  //   setPassword('1234')
-  //   setCohort('Adams')
-  // }
   return (
     <center>
       <div>
@@ -67,7 +61,7 @@ function RegisterForm() {
 
         >
           <Box sx={style}>
-            <h2 onClick={demoFill}>Register User</h2>
+            <h2>Register User</h2>
             <div>
               <TextField
                 id="outlined-multiline-flexible"
