@@ -6,7 +6,7 @@ const router = express.Router();
 router.get('/:search_term', rejectUnauthenticated, (req, res) => {
   // GET route code here
 
-  // case insensitive SQL thing??
+  // case insensitive/fuzzy search SQL 
   const sqlText = `
   SELECT DISTINCT "locations".* FROM "locations"
  JOIN "locations_food" on "locations".id = "locations_food".location_id
@@ -23,7 +23,7 @@ router.get('/:search_term', rejectUnauthenticated, (req, res) => {
 });
 
 
-// this get is to get locations oredered in a specific manner
+// this get is to get locations ordered in a specific manner
 router.get('/sort/:id', rejectUnauthenticated, (req, res) => {
 
   // GET route code here
