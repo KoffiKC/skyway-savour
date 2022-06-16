@@ -1,4 +1,7 @@
 const express = require('express');
+const {
+  rejectUnauthenticated,
+} = require('../modules/authentication-middleware');
 const pool = require('../modules/pool');
 const router = express.Router();
 
@@ -49,6 +52,7 @@ router.get('/details/:id', (req, res) => {
 // POST will be ADMIN only
 router.post('/', (req, res) => {
   // POST route code here
+  // in this function Admins will be able to add ne locations to the App
 });
 
 module.exports = router;

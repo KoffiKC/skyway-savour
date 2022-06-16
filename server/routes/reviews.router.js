@@ -1,4 +1,7 @@
 const express = require('express');
+const {
+  rejectUnauthenticated,
+} = require('../modules/authentication-middleware');
 const pool = require('../modules/pool');
 const router = express.Router();
 
@@ -46,7 +49,7 @@ router.put('/user/:review_id', (req, res) => {
   const sqlText = `
   UPDATE "reviews" 
   SET "rating" = $1, "review" = $2
-  WHERE "id" = $;`
+  WHERE "id" = $3;`
 
   const reviewData = [req.body.rating, req.body.review, req.params.review_id]
   
